@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
 
 const instagramPosts = [
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/d5f65763-1a27-498f-9969-e90bd8a844b5.jpg',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/BeautyPlus_20221014072720525_save.jpg',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/F141043A-1F73-4134-B40A-97028266DBCA.JPG',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/IMG_20220714_065955_072.jpg',
+  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BAF15CC5-0C9E-4CE8-B501-9B5A450CB8E9.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvQkFGMTVDQzUtMEM5RS00Q0U4LUI1MDEtOUI1QTQ1MENCOEU5LkpQRyIsImlhdCI6MTc0NTQwMTMxMywiZXhwIjoyMDYwNzYxMzEzfQ.oM0bVc9oKlhuqM8JQ1sAD_dZ46COvZC0v6g3TwEpknk',
+  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/IMG_20220714_065955_072.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvSU1HXzIwMjIwNzE0XzA2NTk1NV8wNzIuanBnIiwiaWF0IjoxNzQ1NDAxNDU4LCJleHAiOjIwNjA3NjE0NTh9.TsoyNL5ncrgXvSpJdUwKuVKnQyX4VqZSNGhpU6m2VRY',
+  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/EMW.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvRU1XLmpwZyIsImlhdCI6MTc0NTQwMTUyNSwiZXhwIjoyMDYwNzYxNTI1fQ.8J_p5d1sknxxDH78MJaM-r0ptwx68pLmD5MLtU1D2vQ',
+  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/F141043A-1F73-4134-B40A-97028266DBCA.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvRjE0MTA0M0EtMUY3My00MTM0LUI0MEEtOTcwMjgyNjZEQkNBLkpQRyIsImlhdCI6MTc0NTQwMTM3NCwiZXhwIjoyMDYwNzYxMzc0fQ.-x18KyKxVEBcGqzD4bxpgoh5WpxJ4BnNu0eyouCfVRk',
 ];
 
 export function InstagramFeed() {

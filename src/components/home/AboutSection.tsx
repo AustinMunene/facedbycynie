@@ -8,7 +8,7 @@ export function AboutSection() {
     <section className="relative">
       <div className="absolute inset-0">
         <img
-          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/purple1.jpg"
+          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/purple1.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvcHVycGxlMS5qcGciLCJpYXQiOjE3NDU0MDE4ODUsImV4cCI6MjA2MDc2MTg4NX0.MMUqH7P5a4VXYZwZFFGRQ_ELVSvb828G8hSFqRH0rHg"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -24,7 +24,7 @@ export function AboutSection() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/Cynie.jpg"
+                src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzQ1NDAxNjQ0LCJleHAiOjIwNjA3NjE2NDR9.JarekKw671iBfhdbQyex5v6AiPNSlTUY84b4R5sW3EY"
                 alt="Makeup artist at work"
                 className="w-full h-[550px] object-cover rounded-lg shadow-xl"
               />

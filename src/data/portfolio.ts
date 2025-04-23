@@ -1,13 +1,14 @@
 import { PortfolioItem } from '../types/portfolio';
+import { getPublicImageUrl } from '../utils/supabase';
 
 export const portfolioItems: PortfolioItem[] = [
   {
     id: '1',
     title: 'Elegant Bridal Makeup',
     description: 'Edge of Glamour',
-    category: 'editorial',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8.JPG',
-    beforeImage: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8.JPG',
+    category: 'bridal',
+    imageUrl: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BRidal.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvQlJpZGFsLmpwZyIsImlhdCI6MTc0NTQwMjEzMywiZXhwIjoyMDYwNzYyMTMzfQ.iDx5LeSd3oA2aR1g1SZHb85G7J-LrA8iNYZzRti4VoM'),
+    beforeImage: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BRidal.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvQlJpZGFsLmpwZyIsImlhdCI6MTc0NTQwMjEzMywiZXhwIjoyMDYwNzYyMTMzfQ.iDx5LeSd3oA2aR1g1SZHb85G7J-LrA8iNYZzRti4VoM'),
     products: [
       'Charlotte Tilbury Airbrush Flawless Foundation',
       'Pat McGrath Divine Rose Palette',
@@ -26,38 +27,29 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       'Editorial makeup inspired by abstract art and bold imagination',
     category: 'editorial',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/BeautyPlus_20220717145605336_save.jpg',
+    imageUrl: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BeautyPlus_20220717145605336_save.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvQmVhdXR5UGx1c18yMDIyMDcxNzE0NTYwNTMzNl9zYXZlLmpwZyIsImlhdCI6MTc0NTQwNzE5MSwiZXhwIjoyMDYwNzY3MTkxfQ.BoA0xv7UzVovMjj_ziVXugFcZne4TF1nMdnK82Tfuro'),
   },
   {
     id: '3',
-    title: 'Makeup Tutorial',
-    description: 'Watch how to create this stunning look',
-    category: 'tutorial',
-    isVideo: true,
-    videoUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/1f7207c08d4e4888a93d9c5b033b4258.MOV',
-    videoThumbnailUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8.JPG',
-  },
-  {
-    id: '4',
     title: 'Photography Makeup',
     description: 'Specialized makeup optimized for photography and video',
     category: 'special-effects',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/beige.jpg',
-    beforeImage: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/beige.jpg',
+    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/F141043A-1F73-4134-B40A-97028266DBCA.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvRjE0MTA0M0EtMUY3My00MTM0LUI0MEEtOTcwMjgyNjZEQkNBLkpQRyIsImlhdCI6MTc0NTQwNzI1MCwiZXhwIjoyMDYwNzY3MjUwfQ.1YqHauwidJX2CcFjeUIJeuGLZpJctPN8L4vAVVPrSuI',
+    beforeImage: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/F141043A-1F73-4134-B40A-97028266DBCA.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvRjE0MTA0M0EtMUY3My00MTM0LUI0MEEtOTcwMjgyNjZEQkNBLkpQRyIsImlhdCI6MTc0NTQwNzI1MCwiZXhwIjoyMDYwNzY3MjUwfQ.1YqHauwidJX2CcFjeUIJeuGLZpJctPN8L4vAVVPrSuI',
   },
   {
-    id: '5',
+    id: '4',
     title: 'Natural Glam',
     description: 'Everyday glam makeup look',
     category: 'casual',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/AA1A4985-4DF7-4365-B336-AD4CDA5D3C0F.JPG',
+    imageUrl: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvMzZFODNBMzctN0ZEQS00NEY0LUIxNDktMEEzNjhEQTYwMUY4LkpQRyIsImlhdCI6MTc0NTQwNzMzOSwiZXhwIjoyMDYwNzY3MzM5fQ.e1NyhGbKyuM0cGEqUo_hWFuVgO1ai8COIqZDCRqCdJM'),
   },
   {
-    id: '6',
+    id: '5',
     title: 'Let your makeup tell your story',
     description: 'Tell Your story with your style',
     category: 'casual',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/PHOTO-2024-12-11-11-51-19.jpg',
+    imageUrl: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/PHOTO-2024-12-11-11-51-19.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvUEhPVE8tMjAyNC0xMi0xMS0xMS01MS0xOS5qcGciLCJpYXQiOjE3NDU0MDcwNzYsImV4cCI6MjA2MDc2NzA3Nn0.7bP9hMupIMGW7BHsphNbWrpA9oBzkHKnN7hMhm0-u_I'),
     testimonial: {
       author: 'Anonymous',
       text: 'I felt like the most beautiful version of myself on my wedding day. Thank you, Cynie!',
@@ -67,10 +59,10 @@ export const portfolioItems: PortfolioItem[] = [
     },
   },
   {
-    id: '7',
+    id: '6',
     title: 'Avant-Garde Editorial',
     description: 'Creative and bold editorial makeup',
     category: 'editorial',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/public/Images/IMG_20220714_065955_072.jpg',
+    imageUrl: getPublicImageUrl('https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/IMG_20220714_065955_072.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvSU1HXzIwMjIwNzE0XzA2NTk1NV8wNzIuanBnIiwiaWF0IjoxNzQ1NDA3MTI2LCJleHAiOjIwNjA3NjcxMjZ9.ynyvzNHbDLLOvw4703KXaj9ArI2Jin_1pM6zq1YVNno'),
   },
 ];

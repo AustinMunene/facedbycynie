@@ -6,7 +6,6 @@ import { Category } from '../../types/portfolio';
 import { portfolioItems } from '../../data/portfolio';
 import { CategoryFilter } from './CategoryFilter';
 import { PortfolioCard } from './PortfolioCard';
-import { VideoPortfolioCard } from './VideoPortfolioCard';
 
 export function PortfolioGrid() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all');
@@ -17,15 +16,11 @@ export function PortfolioGrid() {
   );
 
   const slides = filteredItems.map(item => ({
-    src: item.isVideo ? item.videoUrl! : item.imageUrl,
+    src: item.imageUrl,
     alt: item.title,
     title: item.title,
     description: item.description,
   }));
-
-  // Separate videos and images
-  const videoItems = filteredItems.filter(item => item.isVideo);
-  const imageItems = filteredItems.filter(item => !item.isVideo);
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -34,45 +29,27 @@ export function PortfolioGrid() {
         onCategoryChange={setSelectedCategory}
       />
       
-      {/* Videos section - Full width, vertical scrolling */}
-      {videoItems.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Featured Videos</h2>
-          <div className="h-[calc(100vh-200px)] overflow-y-auto snap-y snap-mandatory">
-            {videoItems.map((item) => (
-              <VideoPortfolioCard
-                key={item.id}
-                videoUrl={item.videoUrl!}
-                thumbnailUrl={item.videoThumbnailUrl!}
-                title={item.title}
-                description={item.description}
+      <motion.div
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <AnimatePresence>
+          {filteredItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <PortfolioCard
+                item={item}
                 onClick={() => setSelectedItemIndex(filteredItems.indexOf(item))}
               />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Images grid */}
-      {imageItems.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
-          <motion.div
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            <AnimatePresence>
-              {imageItems.map((item) => (
-                <PortfolioCard
-                  key={item.id}
-                  item={item}
-                  onClick={() => setSelectedItemIndex(filteredItems.indexOf(item))}
-                />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       <Lightbox
         open={selectedItemIndex !== null}
