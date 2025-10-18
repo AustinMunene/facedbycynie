@@ -11,10 +11,13 @@ const instagramPosts = [
 
 export function InstagramFeed() {
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-light mb-6">Follow Along</h2>
+    <section className="py-24 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-serif font-light mb-6 text-neutral-900">
+            Follow
+            <span className="block gradient-text">Along</span>
+          </h2>
           <div className="flex justify-center gap-4">
             <a
               href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
@@ -41,7 +44,7 @@ export function InstagramFeed() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {instagramPosts.map((post, index) => (
             <motion.a
               key={post}
@@ -51,14 +54,14 @@ export function InstagramFeed() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden"
+              className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <img
                 src={post}
                 alt="Instagram post"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Instagram className="text-white" size={32} />
               </div>
             </motion.a>

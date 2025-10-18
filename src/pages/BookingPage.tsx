@@ -1,132 +1,309 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Phone,
   Instagram,
-  TicketCheckIcon,
-  TicketMinusIcon,
-  Music2,
+  Mail,
+  MapPin,
+  Calendar,
+  Clock,
 } from 'lucide-react';
 import { services } from '../data/services';
 
 export function BookingPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    date: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.date) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    const subject = `Booking Request - ${formData.service}`;
+    const body = `Hello Cynie,
+
+I would like to book an appointment with you. Here are my details:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Requested: ${formData.service}
+Preferred Date: ${formData.date}
+
+Additional Details:
+${formData.message || 'No additional details provided'}
+
+Please let me know your availability and confirm the appointment.
+
+Thank you!`;
+    
+    // Create mailto link and open default mail app
+    const mailtoLink = `mailto:cynthiachiuri@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Try to open mail app
+    try {
+      window.location.href = mailtoLink;
+    } catch (error) {
+      // Fallback for some browsers
+      window.open(mailtoLink, '_blank');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="pt-20">
-      {/* Header Section (Same Styling as Services Page) */}
-      <div className="bg-purple-50 py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Book an Appointment
-          </h1>
-          <p className="text-gray-600 max-w-2xl">
-            Ready to transform your look? Book your appointment through my
-            preferred channels.
-          </p>
+      {/* Header Section */}
+      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-16">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 text-neutral-900">
+              Book Your
+              <span className="block gradient-text">Transformation</span>
+            </h1>
+            <p className="text-xl text-neutral-600 leading-relaxed">
+              Ready to unleash your ultimate glow? Let's create something beautiful together. 
+              Book your appointment and let your beauty shine brighter than ever.
+            </p>
+          </motion.div>
         </div>
       </div>
 
-      {/* Contact Us Section with Background Image */}
-      <div className="relative">
-        <div className="absolute inset-0">
-          <img
-            src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE0MDMxLCJleHAiOjMzMjk2ODE0MDMxfQ.oy-XaPch6YH01QMdD9dYFN_a2Fk7KXo9HUNQ0EmReE0"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
+      {/* Main Content Section */}
+      <div className="py-20 bg-gradient-to-b from-white to-neutral-50">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Booking Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="card p-8"
+            >
+              <h2 className="text-3xl font-serif font-light mb-8 text-neutral-900">
+                Book Your
+                <span className="block gradient-text">Appointment</span>
+              </h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-medium text-neutral-700 mb-2">
+                      Service *
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      required
+                    >
+                      <option value="">Select a service</option>
+                      {services.map((service) => (
+                        <option key={service.id} value={service.title}>
+                          {service.title} - {service.price}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="date" className="block text-sm font-medium text-neutral-700 mb-2">
+                    Preferred Date *
+                  </label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
+                    Additional Details
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    placeholder="Tell me about your vision, special requirements, or any questions you have..."
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  className="btn-primary w-full"
+                >
+                  <Calendar className="mr-2" size={20} />
+                  Send Booking Request
+                </button>
+              </form>
+            </motion.div>
 
-        <div className="relative z-10">
-          <div className="container mx-auto px-4 py-16">
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              {/* Contact Us Section */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="p-8 rounded-lg"
-              >
-                <h2 className="text-2xl font-semibold mb-6 text-white">
-                  Contact Us
-                </h2>
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="card p-8">
+                <h3 className="text-2xl font-serif font-light mb-6 text-neutral-900">
+                  Get in Touch
+                </h3>
                 <div className="space-y-4">
                   <a
                     href="tel:0740377992"
-                    className="flex items-center text-lg text-white hover:text-neutral-200"
+                    className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl hover:from-pink-100 hover:to-purple-100 transition-all duration-300"
                   >
-                    <Phone className="mr-2" size={20} />
-                    0740377992
+                    <Phone className="w-6 h-6 text-pink-600 mr-4" />
+                    <div>
+                      <h4 className="font-medium text-neutral-900">Phone</h4>
+                      <p className="text-pink-600">0740377992</p>
+                    </div>
                   </a>
+                  
                   <a
-                    href="https://www.instagram.com/faced.by_cyniee_makeup"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-lg text-white hover:text-neutral-200"
+                    href="mailto:cynthiachiuri@gmail.com"
+                    className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl hover:from-pink-100 hover:to-purple-100 transition-all duration-300"
                   >
-                    <Instagram className="mr-2" size={20} />
-                    faced.by_cyniee_makeup
+                    <Mail className="w-6 h-6 text-pink-600 mr-4" />
+                    <div>
+                      <h4 className="font-medium text-neutral-900">Email</h4>
+                      <p className="text-pink-600">cynthiachiuri@gmail.com</p>
+                    </div>
                   </a>
-                  <a
-                    href="https://www.tiktok.com/@faced.bycyniee?_t=8sI7zwEL6HO&_r=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-lg text-white hover:text-neutral-200"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-6 h-6 mr-2"
-                      fill="white"
-                    >
-                      <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
-                    </svg>{' '}
-                    <span>faced.bycyniee</span>
-                  </a>
+                  
+                  <div className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl">
+                    <MapPin className="w-6 h-6 text-pink-600 mr-4" />
+                    <div>
+                      <h4 className="font-medium text-neutral-900">Location</h4>
+                      <p className="text-pink-600">Nairobi, Kenya</p>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-
-              {/* Image Section */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img
-                  src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE0MDMxLCJleHAiOjMzMjk2ODE0MDMxfQ.oy-XaPch6YH01QMdD9dYFN_a2Fk7KXo9HUNQ0EmReE0"
-                  alt="Makeup session"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Available Services Section (No Background Image) */}
-      <div className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="space-y-8">
-            <h2 className="text-3xl font-light text-gray-900">
-              Available Services
+      {/* Available Services Section */}
+      <div className="py-20 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-neutral-900">
+              Available
+              <span className="block gradient-text">Services</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm"
-                >
-                  <h3 className="text-xl font-semibold mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <p className="text-purple-600 font-semibold">
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              Choose from our range of professional makeup services designed to enhance your natural beauty
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="card p-8 hover:scale-105 transition-all duration-300"
+              >
+                <h3 className="text-xl font-serif font-medium mb-4 text-neutral-900">
+                  {service.title}
+                </h3>
+                <p className="text-neutral-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-semibold gradient-text">
                     {service.price}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                  </span>
+                  <Clock className="w-5 h-5 text-neutral-400" />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

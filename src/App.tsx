@@ -8,7 +8,6 @@ import { ServicesPage } from './pages/ServicesPage';
 import { BookingPage } from './pages/BookingPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogPostPage } from './pages/BlogPostPage';
-import { ContactPage } from './pages/ContactPage';
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminRoute } from './features/admin/components/AdminRoute';
@@ -27,7 +26,6 @@ function AnimatedRoutes() {
         <Route path="/book" element={<BookingPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/post/:id" element={<BlogPostPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route
           path="/admin/*"

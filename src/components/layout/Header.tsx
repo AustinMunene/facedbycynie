@@ -27,9 +27,8 @@ export function Header() {
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Services', href: '/services' },
-    { name: 'Book Now', href: '/book' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Book Now', href: '/book' },
   ];
 
   const getTextColor = (isScrolled: boolean, isHomePage: boolean) => {
