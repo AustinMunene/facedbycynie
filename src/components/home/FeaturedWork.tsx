@@ -5,15 +5,15 @@ import { ArrowRight } from 'lucide-react';
 
 const featuredImages = [
   {
-    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvMzZFODNBMzctN0ZEQS00NEY0LUIxNDktMEEzNjhEQTYwMUY4LkpQRyIsImlhdCI6MTczNzc5MDMzMSwiZXhwIjoyMDUzMTUwMzMxfQ.v_l4MJZQ4j_OD0S6s_ReKdtsACuzNRXblhgUJmZVIdU&t=2025-01-25T07%3A32%3A11.878Z',
+    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8%202.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvMzZFODNBMzctN0ZEQS00NEY0LUIxNDktMEEzNjhEQTYwMUY4IDIuSlBHIiwiaWF0IjoxNzYwODEzNjg5LCJleHAiOjMzMjk2ODEzNjg5fQ.bh3CZw5monmAAAfjayl0e3WAFXCDF9QWa5R5tYnRA7A',
     category: 'Editorial',
   },
   {
-    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Nails.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvTmFpbHMuanBnIiwiaWF0IjoxNzM1OTkyODA5LCJleHAiOjE4OTM2NzI4MDl9.PzztcH-KDlDlwrDOkEnwyTAuDMCWZ8AkyaT1YIMb3DA&t=2025-01-04T12%3A13%3A29.460Z',
+    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Nails.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvTmFpbHMuanBnIiwiaWF0IjoxNzYwODEzNTM2LCJleHAiOjMzMjk2ODEzNTM2fQ.zmQhiauBq07y4b2_zNbubXFwAJIhh4OPhgktkFtU96c',
     category: 'Natural glam',
   },
   {
-    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/8534276E-A0DF-42C2-841F-32289CC3EB67.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvODUzNDI3NkUtQTBERi00MkMyLTg0MUYtMzIyODlDQzNFQjY3LkpQRyIsImlhdCI6MTc0MDE0NDU1MiwiZXhwIjo0ODkzNzQ0NTUyfQ.lGIzm3Fl3P77n9lHMhT2H1eDT-MnBEkwd8Hp4wyhzQI',
+    url: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/8534276E-A0DF-42C2-841F-32289CC3EB67.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvODUzNDI3NkUtQTBERi00MkMyLTg0MUYtMzIyODlDQzNFQjY3LkpQRyIsImlhdCI6MTc2MDgxMzc3MCwiZXhwIjozMzI5NjgxMzc3MH0.1lTSSx4DEfNY2_CQHccwWRIHXwm99IhLjCuD-8V5nI0',
     category: 'Beauty',
   },
 ];

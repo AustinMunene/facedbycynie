@@ -29,7 +29,7 @@ export function BookingPage() {
       <div className="relative">
         <div className="absolute inset-0">
           <img
-            src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/purple1.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvcHVycGxlMS5qcGciLCJpYXQiOjE3Mzc0Nzc3MjcsImV4cCI6MjIxMDUxNzcyN30.n_rKBkMGSFcoDm7uuY3o6bkmJdfYKTuOJwv5HgVs1NU&t=2025-01-21T16%3A42%3A07.166Z"
+            src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE0MDMxLCJleHAiOjMzMjk2ODE0MDMxfQ.oy-XaPch6YH01QMdD9dYFN_a2Fk7KXo9HUNQ0EmReE0"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -91,7 +91,7 @@ export function BookingPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <img
-                  src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvTG9nby5wbmciLCJpYXQiOjE3Mzc0NzQ4MTIsImV4cCI6MjA1MjgzNDgxMn0.gHYMvligOWTnfJFDjr0Vnb8FPHh4uOc-o_OJdgtrcXY&t=2025-01-21T15%3A53%3A32.318Z"
+                  src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE0MDMxLCJleHAiOjMzMjk2ODE0MDMxfQ.oy-XaPch6YH01QMdD9dYFN_a2Fk7KXo9HUNQ0EmReE0"
                   alt="Makeup session"
                   className="w-full h-full object-cover rounded-lg"
                 />

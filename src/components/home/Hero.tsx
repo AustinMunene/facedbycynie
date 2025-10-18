@@ -9,7 +9,7 @@ export function Hero() {
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
         <img
-          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/purple1.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkNjFlMGU0LTI2NjktNDk0NC1iMWU5LTdiNWE1ZDRhNDI4NSJ9.eyJ1cmwiOiJJbWFnZXMvcHVycGxlMS5qcGciLCJpYXQiOjE3NDU0MDE4ODUsImV4cCI6MjA2MDc2MTg4NX0.MMUqH7P5a4VXYZwZFFGRQ_ELVSvb828G8hSFqRH0rHg"
+          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE1NDkzLCJleHAiOjMzMjk2ODE1NDkzfQ.2bovRD5TkjitGZNw7UiO1cXe-10O92wNi9mZ9xjrzK0"
           alt="Elegant makeup look"
           className="w-full h-full object-cover"
         />
