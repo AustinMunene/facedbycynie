@@ -35,7 +35,7 @@ export function Hero() {
             </span>
           </motion.div>
           
-          <h1 className="text-7xl md:text-8xl lg:text-9xl font-serif font-light mb-8 text-white leading-[0.9] tracking-tight">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light mb-6 md:mb-8 text-white leading-[0.9] tracking-tight">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -53,12 +53,12 @@ export function Hero() {
               Artist
             </motion.span>
           </h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl mb-12 text-white/90 max-w-2xl leading-relaxed font-light"
+            className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 text-white/90 max-w-2xl leading-relaxed font-light"
           >
             Unleash your ultimate glow with Faced By Cyniee. Specializing in
             flawless makeup artistry and stunning lash enhancements, transforming
@@ -69,11 +69,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6"
           >
             <Link
               to="/book"
-              className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-neutral-900 text-lg font-medium rounded-full hover:bg-white/95 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105"
+              className="group relative inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] bg-white text-neutral-900 text-lg font-medium rounded-full hover:bg-white/95 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105"
             >
               <span className="relative z-10">Book Now</span>
               <ArrowRight
@@ -82,10 +82,10 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Link>
-            
+
             <Link
               to="/portfolio"
-              className="group inline-flex items-center justify-center px-10 py-5 border-2 border-white/30 text-white text-lg font-medium rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              className="group inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] border-2 border-white/30 text-white text-lg font-medium rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
             >
               <span>View Portfolio</span>
               <div className="ml-3 w-2 h-2 bg-white/60 rounded-full group-hover:bg-white transition-colors duration-300" />

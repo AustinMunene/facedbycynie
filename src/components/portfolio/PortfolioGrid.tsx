@@ -36,28 +36,45 @@ export function PortfolioGrid() {
         />
       </motion.div>
       
-      <motion.div
-        layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-      >
-        <AnimatePresence>
-          {filteredItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="hover:scale-105 transition-all duration-300"
-            >
-              <PortfolioCard
-                item={item}
-                onClick={() => setSelectedItemIndex(filteredItems.indexOf(item))}
+      <div className="relative">
+        <motion.div
+          layout
+          className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto flex sm:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide"
+        >
+          <AnimatePresence>
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="hover:scale-105 transition-all duration-300 flex-shrink-0 w-[85vw] sm:w-auto snap-center"
+              >
+                <PortfolioCard
+                  item={item}
+                  onClick={() => setSelectedItemIndex(filteredItems.indexOf(item))}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Scroll indicator for mobile */}
+        {filteredItems.length > 1 && (
+          <div className="flex justify-center gap-2 mt-6 sm:hidden">
+            {filteredItems.slice(0, Math.min(filteredItems.length, 10)).map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-neutral-300 transition-all duration-300"
               />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+            ))}
+            {filteredItems.length > 10 && (
+              <div className="text-xs text-neutral-500 ml-1">+{filteredItems.length - 10}</div>
+            )}
+          </div>
+        )}
+      </div>
 
       <Lightbox
         open={selectedItemIndex !== null}

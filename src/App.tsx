@@ -13,6 +13,7 @@ import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminRoute } from './features/admin/components/AdminRoute';
 import { AdminProvider } from './features/admin/contexts/AdminContext';
 import ScrollToTop from './components/ScrollToTop';
+import { StickyBookButton } from './components/ui/StickyBookButton';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -50,6 +51,7 @@ export default function App() {
             <AnimatedRoutes />
             <ScrollToTop />
           </main>
+          <StickyBookButton />
         </div>
       </Router>
     </AdminProvider>

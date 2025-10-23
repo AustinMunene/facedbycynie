@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Instagram, Settings, Menu, X } from 'lucide-react';
 import { useAuth } from '../../features/auth/hooks/useAuth';
@@ -8,6 +8,7 @@ export function Header() {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
@@ -22,6 +23,23 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -39,7 +57,8 @@ export function Header() {
   };
 
   return (
-    <header 
+    <header
+      ref={menuRef}
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled || !isHomePage || isMobileMenuOpen ? 'bg-white/95 shadow-sm' : 'bg-black/20'
       }`}
@@ -102,9 +121,12 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4">
-            <div className="flex flex-col space-y-4">
+        <div
+          className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-96 py-4' : 'max-h-0'
+          }`}
+        >
+          <div className="flex flex-col space-y-4 px-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -134,8 +156,7 @@ export function Header() {
                 )}
               </div>
             </div>
-          </div>
-        )}
+        </div>
       </nav>
     </header>
   );
