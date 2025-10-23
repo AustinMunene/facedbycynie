@@ -44,7 +44,7 @@ export function InstagramFeed() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
           {instagramPosts.map((post, index) => (
             <motion.a
               key={post}
@@ -54,7 +54,7 @@ export function InstagramFeed() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-auto snap-center"
             >
               <img
                 src={post}

@@ -46,9 +46,9 @@ export function Header() {
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link 
-            to="/" 
-            className={`text-2xl font-bold ${
+          <Link
+            to="/"
+            className={`text-2xl font-serif font-semibold ${
               isScrolled || !isHomePage || isMobileMenuOpen ? 'text-purple-600' : 'text-white'
             }`}
           >
