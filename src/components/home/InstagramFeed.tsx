@@ -44,28 +44,40 @@ export function InstagramFeed() {
           </div>
         </div>
 
-        <div className="md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
-          {instagramPosts.map((post, index) => (
-            <motion.a
-              key={post}
-              href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-auto snap-center"
-            >
-              <img
-                src={post}
-                alt="Instagram post"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        <div className="relative">
+          <div className="md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+            {instagramPosts.map((post, index) => (
+              <motion.a
+                key={post}
+                href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-auto snap-center"
+              >
+                <img
+                  src={post}
+                  alt="Instagram post"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Instagram className="text-white" size={32} />
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Scroll indicator for mobile */}
+          <div className="flex justify-center gap-2 mt-6 md:hidden">
+            {instagramPosts.map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-neutral-300 transition-all duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Instagram className="text-white" size={32} />
-              </div>
-            </motion.a>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
