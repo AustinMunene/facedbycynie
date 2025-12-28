@@ -18,7 +18,7 @@ export function BlogContent({ content }: BlogContentProps) {
       
       if (isHeading) {
         return (
-          <h3 key={index} className="text-3xl font-script font-semibold text-neutral-900 mt-12 mb-6 first:mt-0 tracking-wide">
+          <h3 key={index} className="text-3xl font-script font-semibold text-neutral-900 mt-10 mb-5 first:mt-0 tracking-wide">
             {trimmed.replace(/^\d+\.\s*/, '')}
           </h3>
         );
@@ -29,7 +29,7 @@ export function BlogContent({ content }: BlogContentProps) {
         return (
           <div key={index} className="flex items-start mb-4 pl-6 relative">
             <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 flex-shrink-0"></div>
-            <p className="font-script text-xl leading-relaxed text-neutral-700 ml-2">
+            <p className="font-readable-script text-lg leading-relaxed text-neutral-700 ml-2">
               {bulletText}
             </p>
           </div>
@@ -42,7 +42,7 @@ export function BlogContent({ content }: BlogContentProps) {
       if (isProTip) {
         return (
           <div key={index} className="my-6 p-6 bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl border-l-4 border-pink-400">
-            <p className="font-script text-xl leading-relaxed text-neutral-800">
+            <p className="font-readable-script text-lg leading-relaxed text-neutral-800">
               <span className="font-semibold text-pink-600">💡 {trimmed}</span>
             </p>
           </div>
@@ -50,7 +50,7 @@ export function BlogContent({ content }: BlogContentProps) {
       }
       
       return (
-        <p key={index} className="mb-6 leading-relaxed text-neutral-700 font-script text-xl">
+        <p key={index} className="mb-5 leading-relaxed text-neutral-700 font-readable-script text-lg">
           {trimmed}
         </p>
       );

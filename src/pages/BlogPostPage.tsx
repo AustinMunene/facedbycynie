@@ -35,13 +35,13 @@ export function BlogPostPage() {
 
   return (
     <div className="pt-20 bg-gradient-to-br from-pink-50 via-white to-purple-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8 lg:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6 lg:py-10">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="mb-6 lg:mb-8"
+          className="mb-5 lg:mb-6"
         >
           <Link
             to="/blog"
@@ -67,16 +67,16 @@ export function BlogPostPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 lg:mt-20"
+            className="mt-12 lg:mt-16"
           >
-            <div className="flex items-center gap-3 mb-8 lg:mb-12">
+            <div className="flex items-center gap-3 mb-6 lg:mb-10">
               <Sparkles className="w-6 h-6 text-pink-600" />
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-neutral-900">
                 Related
                 <span className="block gradient-text">Posts</span>
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
               {relatedPosts.map((relatedPost, index) => (
                 <motion.div
                   key={relatedPost.id}

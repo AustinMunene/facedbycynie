@@ -11,7 +11,7 @@ export function BlogHeader({ title, author, date, category }: BlogHeaderProps) {
   return (
     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent flex items-end">
       <div className="w-full">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 xl:px-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 xl:px-12 pb-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-script font-semibold mb-6 text-white drop-shadow-2xl leading-tight tracking-wide">
             {title}
           </h1>

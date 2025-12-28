@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -21,13 +20,13 @@ const featuredImages = [
 
 export function FeaturedWork() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-neutral-50">
+    <section className="py-16 bg-gradient-to-b from-white to-neutral-50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12"
         >
           <div>
             <h2 className="text-5xl md:text-6xl font-serif font-light mb-4 text-neutral-900">
@@ -48,7 +47,7 @@ export function FeaturedWork() {
         </motion.div>
 
         <div className="relative">
-          <div className="md:grid md:grid-cols-3 gap-6 max-w-5xl mx-auto md:mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+          <div className="md:grid md:grid-cols-3 gap-5 max-w-5xl mx-auto md:mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
             {featuredImages.map((image, index) => (
               <motion.div
                 key={image.url}
@@ -60,7 +59,7 @@ export function FeaturedWork() {
                 <div className="aspect-[4/5] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
                   <SafeImage
                     src={image.url}
-                    alt={`Featured ${'https://imgur.com/C0wE8sm.jpeg'.category} work`}
+                    alt={`Featured ${image.category} work`}
                     fallbackSrc="https://i.imgur.com/CoYtKpy.jpeg"
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

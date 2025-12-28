@@ -23,12 +23,12 @@ export function PortfolioGrid() {
   }));
 
   return (
-    <div className="container mx-auto px-6 py-20">
+    <div className="container mx-auto px-6 py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-16"
+        className="mb-10"
       >
         <CategoryFilter
           selectedCategory={selectedCategory}
@@ -39,7 +39,7 @@ export function PortfolioGrid() {
       <div className="relative">
         <motion.div
           layout
-          className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto flex sm:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide"
+          className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto flex sm:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide"
         >
           <AnimatePresence>
             {filteredItems.map((item, index) => (

@@ -69,7 +69,7 @@ Thank you!`;
   return (
     <div className="pt-20">
       {/* Header Section */}
-      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-16">
+      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-12">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ Thank you!`;
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 text-neutral-900">
+            <h1 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
               Book Your
               <span className="block gradient-text">Transformation</span>
             </h1>
@@ -90,9 +90,9 @@ Thank you!`;
       </div>
 
       {/* Main Content Section */}
-      <div className="py-20 bg-gradient-to-b from-white to-neutral-50">
+      <div className="py-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Booking Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -264,15 +264,15 @@ Thank you!`;
       </div>
 
       {/* Available Services Section */}
-      <div className="py-20 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
+      <div className="py-16 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-neutral-900">
+            <h2 className="text-4xl md:text-5xl font-serif font-light mb-5 text-neutral-900">
               Available
               <span className="block gradient-text">Services</span>
             </h2>
@@ -281,7 +281,7 @@ Thank you!`;
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}

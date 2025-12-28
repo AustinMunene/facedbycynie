@@ -7,7 +7,7 @@ export function ServicesPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-20">
+      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-16">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -15,11 +15,11 @@ export function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 text-neutral-900">
+            <h1 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
               Professional
               <span className="block gradient-text">Services</span>
             </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed mb-12">
+            <p className="text-xl text-neutral-600 leading-relaxed mb-10">
               Unleash your beauty with my professional makeup services! From bridal to editorial, 
               I specialize in creating stunning transformations that enhance your natural beauty.
             </p>
@@ -60,15 +60,15 @@ export function ServicesPage() {
       </div>
 
       {/* Services Overview */}
-      <div className="py-20 bg-gradient-to-b from-white to-neutral-50">
+      <div className="py-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-neutral-900">
+            <h2 className="text-4xl md:text-5xl font-serif font-light mb-5 text-neutral-900">
               What I
               <span className="block gradient-text">Offer</span>
             </h2>
@@ -79,7 +79,7 @@ export function ServicesPage() {
           </motion.div>
 
           {/* Service Categories */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -131,9 +131,9 @@ export function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-16"
+            className="text-center mt-12"
           >
-            <p className="text-lg text-neutral-600 mb-8">
+            <p className="text-lg text-neutral-600 mb-6">
               Ready to transform your look? Let's create something beautiful together.
             </p>
             <Link

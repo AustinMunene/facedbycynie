@@ -10,10 +10,10 @@ const instagramPosts = [
 ]
 export function InstagramFeed() {
   return (
-    <section className="py-24 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
+    <section className="py-16 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-serif font-light mb-6 text-neutral-900">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
             Follow
             <span className="block gradient-text">Along</span>
           </h2>
@@ -44,7 +44,7 @@ export function InstagramFeed() {
         </div>
 
         <div className="relative flex justify-center">
-          <div className="md:grid md:grid-cols-4 md:justify-items-center gap-8 max-w-6xl w-full flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+          <div className="md:grid md:grid-cols-4 md:justify-items-center gap-6 max-w-6xl w-full flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
             {instagramPosts.map((post, index) => (
               <motion.a
                 key={post}

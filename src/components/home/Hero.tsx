@@ -27,14 +27,14 @@ export function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8"
+            className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-lg font-script font-medium tracking-wide">
               Professional Makeup Artist
             </span>
           </motion.div>
           
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light mb-6 md:mb-8 text-white leading-[0.9] tracking-tight">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light mb-5 md:mb-6 text-white leading-[0.9] tracking-tight">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 text-white/90 max-w-2xl leading-relaxed font-light"
+            className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-white/90 max-w-2xl leading-relaxed font-light"
           >
             Unleash your ultimate glow with Faced By Cyniee. Specializing in
             flawless makeup artistry and stunning lash enhancements, transforming

@@ -42,12 +42,12 @@ export function BlogPost({ post, isFullPost = false }: BlogPostProps) {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 xl:px-16 py-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 xl:px-12 py-10">
           <BlogContent content={post.content || post.excerpt} />
         </div>
 
         <div className="border-t bg-gradient-to-br from-pink-50 to-purple-50">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 xl:px-16 py-8">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 xl:px-12 py-6">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
                 <SafeImage

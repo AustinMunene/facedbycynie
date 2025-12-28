@@ -8,14 +8,15 @@ export default {
         'serif': ['Playfair Display', 'serif'],
         'script': ['Dancing Script', 'cursive'],
         'elegant': ['Cormorant Garamond', 'serif'],
+        'readable-script': ['Caveat', 'cursive'],
       },
       container: {
         center: true,
         padding: {
           DEFAULT: '1rem',
-          sm: '2rem',
-          lg: '4rem',
-          xl: '5rem',
+          sm: '1.5rem',
+          lg: '2.5rem',
+          xl: '3rem',
         },
       },
       colors: {
