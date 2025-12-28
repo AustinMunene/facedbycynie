@@ -23,7 +23,7 @@ export function HomepageManager() {
               </label>
               <div className="mt-1 flex items-center gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4"
+                  src="https://i.imgur.com/CoYtKpy.jpeg"
                   alt="Hero background"
                   className="w-32 h-32 object-cover rounded"
                 />
@@ -51,7 +51,7 @@ export function HomepageManager() {
             {[1, 2, 3].map((item) => (
               <div key={item} className="relative group">
                 <img
-                  src={`https://images.unsplash.com/photo-${item}`}
+                  src={`https://i.imgur.com/CoYtKpy.jpeg`}
                   alt={`Featured work ${item}`}
                   className="w-full h-32 object-cover rounded"
                 />

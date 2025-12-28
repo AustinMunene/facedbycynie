@@ -42,7 +42,6 @@ export function BlogPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="hover:scale-105 transition-all duration-300"
               >
                 <BlogPost post={post} />
               </motion.div>

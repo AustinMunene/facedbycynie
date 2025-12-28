@@ -1,14 +1,13 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
+import { SafeImage } from '../ui/SafeImage';
 
 const instagramPosts = [
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/F141043A-1F73-4134-B40A-97028266DBCA.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvRjE0MTA0M0EtMUY3My00MTM0LUI0MEEtOTcwMjgyNjZEQkNBLkpQRyIsImlhdCI6MTc2MDgxNDMwNiwiZXhwIjozMzI5NjgxNDMwNn0.p6MRmoGGbcOyOTbqUD9m-XyYDpMcMSbxhG27uId3hL4',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/IMG_20220714_065955_072.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvSU1HXzIwMjIwNzE0XzA2NTk1NV8wNzIuanBnIiwiaWF0IjoxNzYwODE0MzQ4LCJleHAiOjMzMjk2ODE0MzQ4fQ.WsyEIZIV1Z2tOuSoBoWiWGqGusW7oD-VGwLElgcXm9k',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BAF15CC5-0C9E-4CE8-B501-9B5A450CB8E9.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQkFGMTVDQzUtMEM5RS00Q0U4LUI1MDEtOUI1QTQ1MENCOEU5LkpQRyIsImlhdCI6MTc2MDgxNDQzMywiZXhwIjozMzI5NjgxNDQzM30.VxjLN18r63Y2_w1BHexluamywMnyfRT_CdXz5Gyjaf8',
-  'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/d5f65763-1a27-498f-9969-e90bd8a844b5.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvZDVmNjU3NjMtMWEyNy00OThmLTk5NjktZTkwYmQ4YTg0NGI1LmpwZyIsImlhdCI6MTc2MDgxNDQ5MywiZXhwIjozMzI5NjgxNDQ5M30.1pyU8Je0ix6ra-lVavERgZE2ya_pZEtvrjnp-W15EUc',
-];
-
+  'https://imgur.com/Pec1CUd.jpeg',
+  'https://imgur.com/QHJRUCc.jpeg',
+  'https://imgur.com/HX9iBXu.jpeg',
+  'https://imgur.com/eiRYbvk.jpeg',
+]
 export function InstagramFeed() {
   return (
     <section className="py-24 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
@@ -44,8 +43,8 @@ export function InstagramFeed() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+        <div className="relative flex justify-center">
+          <div className="md:grid md:grid-cols-4 md:justify-items-center gap-8 max-w-6xl w-full flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
             {instagramPosts.map((post, index) => (
               <motion.a
                 key={post}
@@ -55,9 +54,9 @@ export function InstagramFeed() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-auto snap-center"
+                className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-full max-w-none snap-center"
               >
-                <img
+                <SafeImage
                   src={post}
                   alt="Instagram post"
                   loading="lazy"

@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { createClient, User } from '@supabase/supabase-js';
+import { authStorage, type AuthSession } from '../../../utils/localStorage';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+interface User {
+  email: string;
+  id: string;
+}
 
 interface AdminContextType {
   user: User | null;
@@ -23,24 +23,29 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Check active session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setIsLoading(false);
-    });
+    const session = authStorage.getSession();
+    if (session) {
+      setUser(session.user);
+    }
+    setIsLoading(false);
 
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setIsLoading(false);
-    });
+    // Check session periodically
+    const interval = setInterval(() => {
+      const currentSession = authStorage.getSession();
+      if (currentSession) {
+        setUser(currentSession.user);
+      } else {
+        setUser(null);
+      }
+    }, 60000); // Check every minute
 
-    return () => subscription.unsubscribe();
+    return () => clearInterval(interval);
   }, []);
 
   const login = async (email: string, password: string) => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) throw error;
+      const session = await authStorage.login(email, password);
+      setUser(session.user);
     } catch (err: any) {
       setError(err.message);
       throw err;
@@ -48,7 +53,8 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    authStorage.logout();
+    setUser(null);
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../../../lib/supabase';
+import { authStorage } from '../../../utils/localStorage';
 
 export function useAdminAuth() {
   const [isLoading, setIsLoading] = useState(false);
@@ -10,17 +10,8 @@ export function useAdminAuth() {
       setIsLoading(true);
       setError(null);
 
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (authError) throw authError;
-      if (data.user?.email !== 'admin@facedby.cynie') {
-        throw new Error('Unauthorized access');
-      }
-
-      return data;
+      const session = await authStorage.login(email, password);
+      return { user: session.user };
     } catch (err: any) {
       setError(err.message);
       throw err;
@@ -30,7 +21,7 @@ export function useAdminAuth() {
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    authStorage.logout();
   };
 
   return {

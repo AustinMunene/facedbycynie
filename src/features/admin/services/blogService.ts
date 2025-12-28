@@ -1,51 +1,40 @@
-import { createClient } from '@supabase/supabase-js';
 import { BlogPost } from '../../../types/blog';
+import { blogStorage } from '../../../utils/localStorage';
+import { blogPosts as defaultBlogPosts } from '../../../data/blog';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+// Initialize with default data if localStorage is empty
+function initializeBlogData() {
+  const stored = blogStorage.getAll<BlogPost>();
+  if (stored.length === 0) {
+    blogStorage.save(defaultBlogPosts);
+    return defaultBlogPosts;
+  }
+  return stored;
+}
 
 export const blogService = {
   async getAllPosts() {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) throw error;
-    return data;
+    return initializeBlogData();
   },
 
-  async createPost(post: Omit<BlogPost, 'id'>) {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .insert([post])
-      .select()
-      .single();
-
-    if (error) throw error;
-    return data;
+  async createPost(post: Omit<BlogPost, 'id' | 'date'>) {
+    const newPost: BlogPost = {
+      ...post,
+      id: `blog-${Date.now()}-${Math.random().toString(36).substring(2)}`,
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+    };
+    
+    blogStorage.add(newPost);
+    return newPost;
   },
 
   async updatePost(id: string, post: Partial<BlogPost>) {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .update(post)
-      .eq('id', id)
-      .select()
-      .single();
-
-    if (error) throw error;
-    return data;
+    const updated = blogStorage.update(id, post);
+    if (!updated) throw new Error('Blog post not found');
+    return updated as BlogPost;
   },
 
   async deletePost(id: string) {
-    const { error } = await supabase
-      .from('blog_posts')
-      .delete()
-      .eq('id', id);
-
-    if (error) throw error;
+    blogStorage.delete(id);
   }
 };

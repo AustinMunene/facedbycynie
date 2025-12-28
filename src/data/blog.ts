@@ -65,7 +65,7 @@ Faced by Cynie 💋
     `,
 
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BeautyPlus_20220717145605336_save.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvQmVhdXR5UGx1c18yMDIyMDcxNzE0NTYwNTMzNl9zYXZlLmpwZyIsImlhdCI6MTczNTIzNDM3NSwiZXhwIjoxODkyOTE0Mzc1fQ.gANvdNw-AziQGGF2RLmbJOT9Eyf_U6uRfrXMohLdaMs&t=2024-12-26T17%3A32%3A55.688Z',
+      'https://imgur.com/oeovh2g.jpeg',
     author: 'Cynie',
     date: 'Jan 01, 2025',
     category: 'trends',
@@ -108,7 +108,7 @@ Faced by Cynie 💋
       Faced by Cynie 💋
           `,
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BeautyPlus_20230121173102325_save.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvQmVhdXR5UGx1c18yMDIzMDEyMTE3MzEwMjMyNV9zYXZlLmpwZyIsImlhdCI6MTczNTIzNDQyNiwiZXhwIjoxODkyOTE0NDI2fQ.-Pqkdq5tv8-4JpDmeHTUFiBp7BDYQZKnertecMGcydQ&t=2024-12-26T17%3A33%3A46.991Z',
+      'https://imgur.com/7itRn8M.jpeg',
     author: 'Cynie',
     date: 'March 5, 2024',
     category: 'tutorial',
@@ -155,7 +155,7 @@ Faced by Cynie 💋
     – Faced by Cynie 💋
           `,
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/f86dcc5c-380d-43c3-b3c5-01eca6ddbd5e.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvZjg2ZGNjNWMtMzgwZC00M2MzLWIzYzUtMDFlY2E2ZGRiZDVlLmpwZyIsImlhdCI6MTczNjE3MDkzMSwiZXhwIjoyMDUxNTMwOTMxfQ.EA-31FbM9S7rRflZOFM_ZVBFqkna40_Spqt36JZnQ8c&t=2025-01-06T13%3A42%3A11.784Z',
+      'https://imgur.com/9m5IyGY.jpeg',
     author: 'Cynie',
     date: 'Jan 02, 2025',
     category: 'tutorial',
@@ -208,7 +208,7 @@ With these secrets, you’ll be radiating dewy perfection in no time. And rememb
 – Faced by Cynie 💋
           `,
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BeautyPlus_20221107211831230_save.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvQmVhdXR5UGx1c18yMDIyMTEwNzIxMTgzMTIzMF9zYXZlLmpwZyIsImlhdCI6MTczNjE3MTE5NSwiZXhwIjoyMDUxNTMxMTk1fQ.sCaKjXaGlD8I5YVMPvKXeMqQJhdIXbkNKmVOJkQTmYw&t=2025-01-06T13%3A46%3A35.504Z',
+      'https://imgur.com/2GHNSCF.jpeg',
     author: 'Cynie',
     date: 'Jan 1, 2025',
     category: 'tutorial',
@@ -250,7 +250,7 @@ With these tips, you’ll look and feel your absolute best as you say “I do.�
 -Faced by Cynie 💋
 `,
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BRidal.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvQlJpZGFsLmpwZyIsImlhdCI6MTczNTk5MzM2NSwiZXhwIjoxODkzNjczMzY1fQ.Y-Omb_pvapUkBjE_C82NdlqVWUO3kou7T1VxuCbUTc0&t=2025-01-04T12%3A22%3A45.507Z',
+      'https://imgur.com/Pec1CUd.jpeg',
     author: 'Cynie',
     date: 'Jan 01, 2025',
     category: 'bridal',
@@ -332,7 +332,7 @@ With these tips, you’ll look and feel your absolute best as you say “I do.�
 -Faced by Cynie 💋
 `,
     imageUrl:
-      'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/9F727922-1E28-41E8-8B29-F69E92297B7A.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvOUY3Mjc5MjItMUUyOC00MUU4LThCMjktRjY5RTkyMjk3QjdBLkpQRyIsImlhdCI6MTczNzc5MjM4OSwiZXhwIjoyMDUzMTUyMzg5fQ.YsSMklZVMyOgGsiDzfCwiA-glbv5Davr5Qn5qwO99sA&t=2025-01-25T08%3A06%3A29.790Z',
+      'https://imgur.com/QHJRUCc.jpeg',
     author: 'Cynie',
     date: 'Jan 01, 2025',
     category: 'tutorial',

@@ -1,14 +1,13 @@
 import { PortfolioItem } from '../types/portfolio';
-import { getPublicImageUrl } from '../utils/supabase';
 
 export const portfolioItems: PortfolioItem[] = [
   {
     id: '1',
-    title: 'Elegant Bridal Makeup',
+    title: 'Elegant Makeup',
     description: 'Edge of Glamour',
     category: 'bridal',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BRidal.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQlJpZGFsLmpwZyIsImlhdCI6MTc2MDgxNDg2NywiZXhwIjozMzI5NjgxNDg2N30.oae_z7WW4RhaonND8Oc_wP9xAP3pkfO8Zkf3601M1M8',
-    beforeImage: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/BRidal.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQlJpZGFsLmpwZyIsImlhdCI6MTc2MDgxNDg2NywiZXhwIjozMzI5NjgxNDg2N30.oae_z7WW4RhaonND8Oc_wP9xAP3pkfO8Zkf3601M1M8',
+    imageUrl: 'https://imgur.com/C0wE8sm.jpeg',
+    beforeImage: 'https://imgur.com/C0wE8sm.jpeg',
     products: [
       'Charlotte Tilbury Airbrush Flawless Foundation',
       'Pat McGrath Divine Rose Palette',
@@ -34,22 +33,22 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Photography Makeup',
     description: 'Specialized makeup optimized for photography and video',
     category: 'special-effects',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Nails.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvTmFpbHMuanBnIiwiaWF0IjoxNzYwODE1MTcwLCJleHAiOjMzMjk2ODE1MTcwfQ.ZwDPcwYNkubrcK0ehMdNqEIUYtUCIbjkgWqL-N37qOE',
-    beforeImage: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Nails.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvTmFpbHMuanBnIiwiaWF0IjoxNzYwODE1MTcwLCJleHAiOjMzMjk2ODE1MTcwfQ.ZwDPcwYNkubrcK0ehMdNqEIUYtUCIbjkgWqL-N37qOE',
-  },
+    imageUrl: 'https://imgur.com/F4jQgfy.jpeg',
+      beforeImage: 'https://imgur.com/F4jQgfy.jpeg',
+    },
   {
     id: '4',
     title: 'Natural Glam',
     description: 'Everyday glam makeup look',
     category: 'casual',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/EMW.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvRU1XLmpwZyIsImlhdCI6MTc2MDgxNTI4MywiZXhwIjozMzI5NjgxNTI4M30.ZiXEq_11dfaEP0S2-yTcVoSHMflmSb8lq1WyLkiPjJo',
+    imageUrl: 'https://imgur.com/1JdCK54.jpeg',
   },
   {
     id: '5',
     title: 'Let your makeup tell your story',
     description: 'Tell Your story with your style',
     category: 'casual',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/PHOTO-2024-12-11-11-51-19.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvUEhPVE8tMjAyNC0xMi0xMS0xMS01MS0xOS5qcGciLCJpYXQiOjE3NjA4MTUyMjgsImV4cCI6MzMyOTY4MTUyMjh9.Er5vPSpwsAFNjyeqtyTKxM1XbWGFgo15c4n7N-vDWo0',
+    imageUrl: 'https://imgur.com/bQ6HJw2.jpeg',
     testimonial: {
       author: 'Anonymous',
       text: 'I felt like the most beautiful version of myself on my wedding day. Thank you, Cynie!',
@@ -63,6 +62,6 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Avant-Garde Editorial',
     description: 'Creative and bold editorial makeup',
     category: 'editorial',
-    imageUrl: 'https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/36E83A37-7FDA-44F4-B149-0A368DA601F8%202.JPG?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvMzZFODNBMzctN0ZEQS00NEY0LUIxNDktMEEzNjhEQTYwMUY4IDIuSlBHIiwiaWF0IjoxNzYwODE1MzYyLCJleHAiOjMzMjk2ODE1MzYyfQ.4RoontEpv-wGY3GvU_SeJVNzguEbJE21NkXGmfNtzhU',
+    imageUrl: 'https://imgur.com/HCJ0Ge0.jpeg',
   },
 ];

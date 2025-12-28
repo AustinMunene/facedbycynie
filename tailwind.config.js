@@ -6,6 +6,8 @@ export default {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'serif': ['Playfair Display', 'serif'],
+        'script': ['Dancing Script', 'cursive'],
+        'elegant': ['Cormorant Garamond', 'serif'],
       },
       container: {
         center: true,

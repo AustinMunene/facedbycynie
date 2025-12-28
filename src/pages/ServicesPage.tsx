@@ -33,7 +33,7 @@ export function ServicesPage() {
             >
               <Link
                 to="/book"
-                className="group relative inline-flex items-center justify-center px-12 py-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xl font-medium rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-2xl hover:shadow-pink-500/25 hover:scale-105"
+                className="group relative inline-flex items-center justify-center px-12 py-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xl font-script font-medium tracking-wide rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-2xl hover:shadow-pink-500/25 hover:scale-105"
               >
                 <Sparkles className="mr-3 group-hover:rotate-12 transition-transform duration-300" size={24} />
                 <span className="relative z-10">Book Your Transformation</span>

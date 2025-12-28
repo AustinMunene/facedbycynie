@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SafeImage } from '../ui/SafeImage';
 
 export function AboutSection() {
   return (
     <section className="relative">
       <div className="absolute inset-0">
-        <img
-          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Logo.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvTG9nby5wbmciLCJpYXQiOjE3NjA4MTU2ODAsImV4cCI6MzMyOTY4MTU2ODB9.p-K_JRy_sehGsb-y40JrNma6kE6bsPWzN_EI0yX337A"
+        <SafeImage
+          src="https://imgur.com/GnbueSZ.jpeg"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -23,8 +24,8 @@ export function AboutSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img
-                src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Logo.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvTG9nby5wbmciLCJpYXQiOjE3NjA4MTU2ODAsImV4cCI6MzMyOTY4MTU2ODB9.p-K_JRy_sehGsb-y40JrNma6kE6bsPWzN_EI0yX337A"
+              <SafeImage
+                src="https://imgur.com/aBWbYPL.jpeg"
                 alt="Makeup artist at work"
                 className="w-full h-[650px] object-cover rounded-lg shadow-xl"
               />

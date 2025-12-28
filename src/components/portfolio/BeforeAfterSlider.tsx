@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { useMeasure } from 'react-use';
+import { SafeImage } from '../ui/SafeImage';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -21,13 +22,13 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt }: BeforeAfterS
   return (
     <div ref={ref} className="relative w-full aspect-square overflow-hidden rounded-lg">
       <div className="absolute inset-0">
-        <img src={afterImage} alt={`${alt} - After`} className="w-full h-full object-cover" />
+        <SafeImage src={afterImage} alt={`${alt} - After`} className="w-full h-full object-cover" />
       </div>
       <div
         className="absolute inset-0"
         style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
       >
-        <img src={beforeImage} alt={`${alt} - Before`} className="w-full h-full object-cover" />
+        <SafeImage src={beforeImage} alt={`${alt} - Before`} className="w-full h-full object-cover" />
       </div>
       <motion.div
         drag="x"

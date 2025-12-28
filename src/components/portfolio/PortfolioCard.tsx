@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Heart, MessageCircle, Share2 } from 'lucide-react';
 import { PortfolioItem } from '../../types/portfolio';
+import { SafeImage } from '../ui/SafeImage';
 
 interface PortfolioCardProps {
   item: PortfolioItem;
@@ -29,7 +30,7 @@ export function PortfolioCard({ item, onClick }: PortfolioCardProps) {
     >
       <div className="relative overflow-hidden">
         <div className="aspect-square cursor-pointer" onClick={onClick}>
-          <img
+          <SafeImage
             src={item.imageUrl}
             alt={item.title}
             className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-105"

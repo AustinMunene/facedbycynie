@@ -1,15 +1,14 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ParallaxImage } from '../ui/ParallaxImage';
+import { SafeImage } from '../ui/SafeImage';
 
 export function Hero() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="https://obchjnyedxcbxxmfhnsc.supabase.co/storage/v1/object/sign/Images/Cynie.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yYTY3MWQwNy0wNmZhLTRkOTYtYWY1Yy04OGFiMjg0Y2QwODciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvQ3luaWUuanBnIiwiaWF0IjoxNzYwODE1NDkzLCJleHAiOjMzMjk2ODE1NDkzfQ.2bovRD5TkjitGZNw7UiO1cXe-10O92wNi9mZ9xjrzK0"
+        <SafeImage
+          src="https://i.imgur.com/cpkXDat.jpeg"
           alt="Elegant makeup look"
           className="w-full h-full object-cover scale-105 transition-transform duration-[20s] ease-out"
         />
@@ -30,7 +29,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-sm font-medium tracking-wide uppercase">
+            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-lg font-script font-medium tracking-wide">
               Professional Makeup Artist
             </span>
           </motion.div>
@@ -73,7 +72,7 @@ export function Hero() {
           >
             <Link
               to="/book"
-              className="group relative inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] bg-white text-neutral-900 text-lg font-medium rounded-full hover:bg-white/95 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105"
+              className="group relative inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] bg-white text-neutral-900 text-lg font-script font-medium tracking-wide rounded-full hover:bg-white/95 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105"
             >
               <span className="relative z-10">Book Now</span>
               <ArrowRight
@@ -85,7 +84,7 @@ export function Hero() {
 
             <Link
               to="/portfolio"
-              className="group inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] border-2 border-white/30 text-white text-lg font-medium rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              className="group inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] border-2 border-white/30 text-white text-lg font-script font-medium tracking-wide rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
             >
               <span>View Portfolio</span>
               <div className="ml-3 w-2 h-2 bg-white/60 rounded-full group-hover:bg-white transition-colors duration-300" />

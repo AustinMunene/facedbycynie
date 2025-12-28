@@ -1,6 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
+// This file has been deprecated - Supabase has been removed
+// Use src/utils/localStorage.ts for data storage
+// Use src/features/auth/hooks/useAuth.ts for authentication
 
-export const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+export const supabase = null as any; // Placeholder for backward compatibility

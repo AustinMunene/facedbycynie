@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SafeImage } from '../../ui/SafeImage';
 
 export function AboutImage() {
   return (
@@ -10,7 +11,7 @@ export function AboutImage() {
       className="relative"
     >
       <div className="w-full h-[600px] relative overflow-hidden rounded-lg">
-        <img
+        <SafeImage
           src="/faced-by-cyniee-logo.jpg"
           alt="Faced by Cyniee Logo"
           className="w-full h-full object-cover"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Instagram, Settings, Menu, X } from 'lucide-react';
 import { useAuth } from '../../features/auth/hooks/useAuth';
@@ -67,7 +67,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className={`text-2xl font-serif font-semibold ${
+            className={`text-3xl font-script font-semibold tracking-wide ${
               isScrolled || !isHomePage || isMobileMenuOpen ? 'text-purple-600' : 'text-white'
             }`}
           >
@@ -80,7 +80,7 @@ export function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`transition-colors ${getTextColor(isScrolled, isHomePage)}`}
+                className={`font-script text-xl font-medium tracking-wide transition-all duration-300 hover:scale-105 ${getTextColor(isScrolled, isHomePage)}`}
               >
                 {item.name}
               </Link>
@@ -131,7 +131,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-gray-800 hover:text-purple-600 transition-colors py-2"
+                  className="font-script text-xl font-medium tracking-wide text-gray-800 hover:text-purple-600 transition-all duration-300 hover:scale-105 py-2"
                 >
                   {item.name}
                 </Link>

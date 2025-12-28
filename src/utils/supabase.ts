@@ -1,20 +1,8 @@
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-export const supabase = createClient(supabaseUrl, supabaseKey);
+// This file has been deprecated - Supabase has been removed
+// Use src/utils/imgur.ts for image URL handling instead
+// Use src/utils/localStorage.ts for data storage
 
 export function getPublicImageUrl(path: string): string {
-  // Remove any existing query parameters and tokens
-  const cleanPath = path.split('?')[0];
-  
-  // Extract the bucket and file path
-  const matches = cleanPath.match(/storage\/v1\/object\/public\/([^/]+)\/(.+)/);
-  if (!matches) return path;
-  
-  const [, bucket, filePath] = matches;
-  
-  // Construct the public URL
-  return `${supabaseUrl}/storage/v1/object/public/${bucket}/${filePath}`;
+  // Legacy function - returns path as-is for backward compatibility
+  return path;
 } 

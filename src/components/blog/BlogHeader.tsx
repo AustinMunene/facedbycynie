@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, User, Tag } from 'lucide-react';
 
 interface BlogHeaderProps {
@@ -10,24 +9,24 @@ interface BlogHeaderProps {
 
 export function BlogHeader({ title, author, date, category }: BlogHeaderProps) {
   return (
-    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent">
-      <div className="container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
+    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent flex items-end">
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 xl:px-16 pb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-script font-semibold mb-6 text-white drop-shadow-2xl leading-tight tracking-wide">
             {title}
           </h1>
-          <div className="flex items-center gap-6 text-sm text-white">
-            <div className="flex items-center">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm md:text-base text-white/90">
+            <div className="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
               <User size={16} className="mr-2" />
-              {author}
+              <span className="font-script">{author}</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
               <Calendar size={16} className="mr-2" />
               {date}
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
               <Tag size={16} className="mr-2" />
-              {category}
+              <span className="capitalize">{category}</span>
             </div>
           </div>
         </div>

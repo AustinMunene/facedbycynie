@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { createClient, User } from '@supabase/supabase-js';
+import { authStorage, type AuthSession } from '../../../utils/localStorage';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+interface User {
+  email: string;
+  id: string;
+}
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -13,12 +13,15 @@ export function useAuth() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const checkSession = async () => {
+    const checkSession = () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        setUser(session?.user ?? null);
-        if (session?.user) {
+        const session = authStorage.getSession();
+        if (session) {
+          setUser(session.user);
           setIsAdmin(session.user.email === 'admin@facedby.cynie');
+        } else {
+          setUser(null);
+          setIsAdmin(false);
         }
       } catch (err) {
         console.error('Session check failed:', err);
@@ -31,17 +34,10 @@ export function useAuth() {
 
     checkSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        setIsAdmin(session.user.email === 'admin@facedby.cynie');
-      } else {
-        setIsAdmin(false);
-      }
-      setIsLoading(false);
-    });
+    // Check session periodically
+    const interval = setInterval(checkSession, 60000); // Check every minute
 
-    return () => subscription.unsubscribe();
+    return () => clearInterval(interval);
   }, []);
 
   const login = async (email: string, password: string) => {
@@ -49,19 +45,10 @@ export function useAuth() {
       setIsLoading(true);
       setError(null);
       
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (authError) throw authError;
-      
-      if (data.user?.email !== 'admin@facedby.cynie') {
-        throw new Error('Unauthorized access');
-      }
-
-      setIsAdmin(true);
-      return data;
+      const session = await authStorage.login(email, password);
+      setUser(session.user);
+      setIsAdmin(session.user.email === 'admin@facedby.cynie');
+      return { user: session.user };
     } catch (err: any) {
       setError(err.message);
       throw err;
@@ -71,7 +58,8 @@ export function useAuth() {
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    authStorage.logout();
+    setUser(null);
     setIsAdmin(false);
   };
 

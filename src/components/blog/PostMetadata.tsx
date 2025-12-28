@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, User, Tag } from 'lucide-react';
 
 interface PostMetadataProps {
@@ -9,18 +8,18 @@ interface PostMetadataProps {
 
 export function PostMetadata({ author, date, category }: PostMetadataProps) {
   return (
-    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-      <div className="flex items-center">
-        <Calendar size={16} className="mr-1" />
-        {date}
+    <div className="flex flex-wrap items-center gap-3 text-sm text-neutral-500">
+      <div className="flex items-center gap-1.5">
+        <Calendar size={14} />
+        <span>{date}</span>
       </div>
-      <div className="flex items-center">
-        <User size={16} className="mr-1" />
-        {author}
+      <div className="flex items-center gap-1.5">
+        <User size={14} />
+        <span className="font-script">{author}</span>
       </div>
-      <div className="flex items-center">
-        <Tag size={16} className="mr-1" />
-        {category}
+      <div className="flex items-center gap-1.5">
+        <Tag size={14} />
+        <span className="capitalize">{category}</span>
       </div>
     </div>
   );

@@ -1,58 +1,44 @@
-import { supabase } from '../supabase';
 import { BlogPost } from '../../types/blog';
-import { BlogPostDTO, mapBlogPostFromDTO } from './types';
+import { blogStorage } from '../../utils/localStorage';
+import { blogPosts as defaultBlogPosts } from '../../data/blog';
+
+// Initialize with default data if localStorage is empty
+function initializeBlogData() {
+  const stored = blogStorage.getAll<BlogPost>();
+  if (stored.length === 0) {
+    blogStorage.save(defaultBlogPosts);
+    return defaultBlogPosts;
+  }
+  return stored;
+}
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
-  const { data, error } = await supabase
-    .from('blog_posts')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) throw error;
-  return (data as BlogPostDTO[]).map(mapBlogPostFromDTO);
+  const posts = initializeBlogData();
+  // Sort by date (newest first)
+  return [...posts].sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA;
+  });
 }
 
 export async function createBlogPost(post: Omit<BlogPost, 'id' | 'date'>): Promise<BlogPost> {
-  const { data, error } = await supabase
-    .from('blog_posts')
-    .insert([{
-      title: post.title,
-      excerpt: post.excerpt,
-      content: post.content,
-      image_url: post.imageUrl,
-      author: post.author,
-      category: post.category
-    }])
-    .select()
-    .single();
-
-  if (error) throw error;
-  return mapBlogPostFromDTO(data as BlogPostDTO);
+  const newPost: BlogPost = {
+    ...post,
+    id: `blog-${Date.now()}-${Math.random().toString(36).substring(2)}`,
+    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+  };
+  
+  blogStorage.add(newPost);
+  return newPost;
 }
 
 export async function updateBlogPost(id: string, post: Partial<BlogPost>): Promise<BlogPost> {
-  const { data, error } = await supabase
-    .from('blog_posts')
-    .update({
-      title: post.title,
-      excerpt: post.excerpt,
-      content: post.content,
-      image_url: post.imageUrl,
-      category: post.category
-    })
-    .eq('id', id)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return mapBlogPostFromDTO(data as BlogPostDTO);
+  const updated = blogStorage.update(id, post);
+  if (!updated) throw new Error('Blog post not found');
+  return updated as BlogPost;
 }
 
 export async function deleteBlogPost(id: string): Promise<void> {
-  const { error } = await supabase
-    .from('blog_posts')
-    .delete()
-    .eq('id', id);
-
-  if (error) throw error;
+  blogStorage.delete(id);
 }

@@ -3,7 +3,7 @@ import { Service } from '../../../types/services';
 import { ServiceEditor } from './ServiceEditor';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 import { ErrorMessage } from '../../ui/ErrorMessage';
-import { supabase } from '../../../lib/supabase';
+import { services as defaultServices } from '../../../data/services';
 
 export function ServiceManager() {
   const [services, setServices] = useState<Service[]>([]);
@@ -15,13 +15,8 @@ export function ServiceManager() {
   const loadServices = async () => {
     try {
       setIsLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from('services')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (fetchError) throw fetchError;
-      setServices(data || []);
+      // Services are static data - load from data file
+      setServices(defaultServices);
     } catch (err) {
       setError('Failed to load services');
       console.error('Error loading services:', err);
@@ -36,24 +31,11 @@ export function ServiceManager() {
 
   const handleSave = async (service: Service) => {
     try {
-      const { data, error: saveError } = await supabase
-        .from('services')
-        .upsert({
-          id: service.id,
-          title: service.title,
-          description: service.description,
-          price: service.price,
-          category: service.category,
-          duration: service.duration,
-          updated_at: new Date().toISOString()
-        })
-        .select()
-        .single();
-
-      if (saveError) throw saveError;
+      // Services are static - just reload
       await loadServices();
       setEditingService(null);
       setIsCreating(false);
+      alert('Service management is read-only. Update services in src/data/services.ts');
     } catch (err) {
       setError('Failed to save service');
       console.error('Error saving service:', err);
@@ -64,13 +46,9 @@ export function ServiceManager() {
     if (!window.confirm('Are you sure you want to delete this service?')) return;
     
     try {
-      const { error: deleteError } = await supabase
-        .from('services')
-        .delete()
-        .eq('id', id);
-
-      if (deleteError) throw deleteError;
+      // Services are static - just reload
       await loadServices();
+      alert('Service management is read-only. Update services in src/data/services.ts');
     } catch (err) {
       setError('Failed to delete service');
       console.error('Error deleting service:', err);

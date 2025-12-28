@@ -1,68 +1,45 @@
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+import { blogStorage, portfolioStorage } from '../utils/localStorage';
+import { BlogPost } from '../types/blog';
+import { PortfolioItem } from '../types/portfolio';
 
 export const adminService = {
   // Blog Posts
   async saveBlogPost(post: any) {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .upsert(post)
-      .select();
-
-    if (error) throw error;
-    return data;
+    if (post.id) {
+      const updated = blogStorage.update(post.id, post);
+      return updated ? [updated] : [];
+    } else {
+      const newPost = blogStorage.add(post);
+      return [newPost];
+    }
   },
 
   async deleteBlogPost(id: string) {
-    const { error } = await supabase
-      .from('blog_posts')
-      .delete()
-      .eq('id', id);
-
-    if (error) throw error;
+    blogStorage.delete(id);
   },
 
-  // Services
+  // Services - No-op for now (services are static)
   async saveService(service: any) {
-    const { data, error } = await supabase
-      .from('services')
-      .upsert(service)
-      .select();
-
-    if (error) throw error;
-    return data;
+    console.log('Service saving not implemented with localStorage');
+    return [service];
   },
 
   async deleteService(id: string) {
-    const { error } = await supabase
-      .from('services')
-      .delete()
-      .eq('id', id);
-
-    if (error) throw error;
+    console.log('Service deletion not implemented with localStorage');
   },
 
   // Portfolio
   async savePortfolioItem(item: any) {
-    const { data, error } = await supabase
-      .from('portfolio')
-      .upsert(item)
-      .select();
-
-    if (error) throw error;
-    return data;
+    if (item.id) {
+      const updated = portfolioStorage.update(item.id, item);
+      return updated ? [updated] : [];
+    } else {
+      const newItem = portfolioStorage.add(item);
+      return [newItem];
+    }
   },
 
   async deletePortfolioItem(id: string) {
-    const { error } = await supabase
-      .from('portfolio')
-      .delete()
-      .eq('id', id);
-
-    if (error) throw error;
+    portfolioStorage.delete(id);
   }
 };
