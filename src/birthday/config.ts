@@ -51,7 +51,7 @@ export const LETTER_PARAGRAPHS = [
 
   `Thank you for loving me so well, for believing in me even when I struggle to believe in myself, for praying with me, encouraging me, laughing with me, and making life brighter simply because you're in it. My prayer is that your 28th year is filled with God's favor, joy, peace, unforgettable memories, and dreams becoming reality. I'll be right beside you, cheering you on every step of the way, because there's no one else I'd rather celebrate than you. Happy Birthday, my love. ❤️`,
 ];
-export const SIGNATURE = 'Austin ❤️';
+export const SIGNATURE = 'Babe';
 
 /* ---- 28 Things I Love About You (replace each line) ---- */
 export const THINGS_I_LOVE: string[] = Array.from({ length: AGE }, (_, i) => {
