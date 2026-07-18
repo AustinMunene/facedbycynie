@@ -25,7 +25,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
           className={clsx(
             'px-5 py-2 rounded-full text-[11px] font-sans tracking-[0.12em] uppercase transition-all duration-280',
             selectedCategory === value
-              ? 'bg-[#d888a0] text-white shadow-[0_8px_20px_-8px_rgba(216,136,160,0.55)]'
+              ? 'bg-[#ce7690] text-white shadow-[0_8px_20px_-8px_rgba(206,118,144,0.55)]'
               : 'bg-white text-warmgray-600 border border-warmgray-200/70 hover:border-blush-300 hover:text-blush-600'
           )}
         >

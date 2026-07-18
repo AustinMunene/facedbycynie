@@ -9,7 +9,7 @@ const prefersReducedMotion = () =>
 /* -------------------------------------------------------------- */
 /*  Confetti — lightweight canvas, no dependencies                 */
 /* -------------------------------------------------------------- */
-const CONFETTI_COLORS = ['#f7a8bc', '#e5507a', '#c4617a', '#d888a0', '#fde8ed', '#fffdfb'];
+const CONFETTI_COLORS = ['#f7a8bc', '#e5507a', '#c4617a', '#ce7690', '#fde8ed', '#fffdfb'];
 
 export function Confetti({ run }: { run: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -68,7 +68,7 @@
     font-size: 15px;
     line-height: 1.8;
     letter-spacing: 0.04rem;
-    color: #1a1a1a;
+    color: #14110f;
     background: #fbf6f0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -86,7 +86,7 @@
     font-style: var(--font-heading-style);
     letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
     line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
-    color: #171315;
+    color: #0f0d0c;
   }
 
   h1 { font-size: calc(var(--font-heading-scale) * 2.4rem); }
@@ -113,7 +113,7 @@
   font-size: clamp(28px, 4vw, 40px);
   line-height: 1.1;
   letter-spacing: 0.01em;
-  color: #171315;
+  color: #0f0d0c;
 }
 
 .hce-script-title {
@@ -123,7 +123,7 @@
   font-size: 2.4rem;
   line-height: 1.15;
   letter-spacing: 0.01em;
-  color: #171315;
+  color: #0f0d0c;
 }
 
 @media screen and (min-width: 750px) {
@@ -138,7 +138,7 @@
   font-style: normal;
   font-size: 2.2rem;
   line-height: 1.15;
-  color: #171315;
+  color: #0f0d0c;
 }
 
 @media screen and (min-width: 750px) {
@@ -219,24 +219,25 @@
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 font-sans uppercase whitespace-nowrap;
     padding: 14px 30px;
-    background: #d888a0;
+    background: #ce7690;
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 11px;
     letter-spacing: 0.16em;
+    text-shadow: 0 1px 2px rgba(74, 26, 40, 0.4);
     border: none;
     border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 8px 20px -8px rgba(216, 136, 160, 0.55);
+    box-shadow: 0 8px 20px -8px rgba(206, 118, 144, 0.55);
     transition: background 280ms var(--ease-out), transform 200ms var(--ease-out),
       box-shadow 280ms var(--ease-out);
   }
 
   .btn-pill:hover,
   .btn-primary:hover {
-    background: #c86e88;
+    background: #b85f7b;
     transform: translateY(-2px);
-    box-shadow: 0 14px 28px -10px rgba(216, 136, 160, 0.6);
+    box-shadow: 0 14px 28px -10px rgba(206, 118, 144, 0.6);
   }
 
   .btn-pill:active,
@@ -319,7 +320,7 @@
     justify-content: center;
     padding: 12px 32px;
     background: transparent;
-    color: #171315;
+    color: #0f0d0c;
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 11px;

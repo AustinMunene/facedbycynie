@@ -197,7 +197,7 @@ function BirthdayPage() {
                 </p>
               ))}
               <div className="mt-10 text-right">
-                <span className="bday-script text-[clamp(2rem,5vw,3rem)] text-[color:var(--bday-rose-deep)]">
+                <span className="bday-serif italic text-[clamp(1.15rem,2.4vw,1.5rem)] font-semibold text-[color:var(--bday-rose-deep)]">
                   — {C.SIGNATURE} ❤️
                 </span>
               </div>

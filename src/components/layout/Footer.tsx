@@ -13,9 +13,9 @@ export function Footer() {
   return (
     <footer className="bg-cream-50 border-t border-warmgray-200/60">
       <div className="container mx-auto px-5 lg:px-8 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 gap-y-10 lg:gap-16">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <Link
               to="/"
               className="text-2xl font-accent text-warmgray-900 inline-block mb-3"

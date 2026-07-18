@@ -36,7 +36,7 @@ export function StickyBookButton() {
         >
           <Link
             to="/book"
-            className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#d888a0] text-white text-[13px] font-sans font-normal tracking-[0.12em] uppercase shadow-[0_10px_28px_-8px_rgba(216,136,160,0.6)] transition-all duration-280 hover:bg-[#c86e88] active:scale-[0.97]"
+            className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#ce7690] text-white text-[13px] font-sans font-medium tracking-[0.12em] uppercase [text-shadow:0_1px_2px_rgba(74,26,40,0.4)] shadow-[0_10px_28px_-8px_rgba(206,118,144,0.6)] transition-all duration-280 hover:bg-[#b85f7b] active:scale-[0.97]"
           >
             <Calendar size={16} strokeWidth={1.5} />
             <span>Book Now</span>

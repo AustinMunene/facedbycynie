@@ -12,9 +12,15 @@
  */
 export function normalizeImageUrl(url: string): string {
   if (!url) return '';
-  
-  // If it's already a full URL (http/https), return as-is
+
+  // If it's already a full URL (http/https)
   if (url.startsWith('http://') || url.startsWith('https://')) {
+    // Imgur "gallery" URLs (imgur.com/xxx) are HTML pages that redirect —
+    // rewrite them to the direct CDN host so they load fast and reliably.
+    const gallery = url.match(/^https?:\/\/(?:www\.)?imgur\.com\/(.+)$/i);
+    if (gallery) {
+      return `https://i.imgur.com/${gallery[1]}`;
+    }
     return url;
   }
   

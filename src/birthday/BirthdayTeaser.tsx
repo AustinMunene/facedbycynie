@@ -30,13 +30,13 @@ export function BirthdayTeaser() {
           aria-label="Open your birthday surprise"
           animate={{
             boxShadow: [
-              '0 8px 22px -8px rgba(216,136,160,0.55)',
-              '0 12px 32px -6px rgba(216,136,160,0.95)',
-              '0 8px 22px -8px rgba(216,136,160,0.55)',
+              '0 8px 22px -8px rgba(206,118,144,0.55)',
+              '0 12px 32px -6px rgba(206,118,144,0.95)',
+              '0 8px 22px -8px rgba(206,118,144,0.55)',
             ],
           }}
           transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-          className="group flex items-center gap-2 pl-3.5 pr-4 py-2.5 rounded-full bg-[#d888a0] text-white hover:bg-[#c86e88] transition-colors duration-280"
+          className="group flex items-center gap-2 pl-3.5 pr-4 py-2.5 rounded-full bg-[#ce7690] text-white hover:bg-[#b85f7b] transition-colors duration-280"
         >
           <Gift
             size={15}

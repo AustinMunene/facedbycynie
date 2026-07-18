@@ -11,8 +11,11 @@ export function Hero() {
       {/* Full-bleed background portrait */}
       <div className="absolute inset-0">
         <SafeImage
-          src="https://images.pexels.com/photos/2535913/pexels-photo-2535913.jpeg"
+          src="https://images.pexels.com/photos/2535913/pexels-photo-2535913.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Elegant makeup look"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-[center_25%]"
         />
         {/* Soft warm scrim — gentle on a light flat-lay image */}
