@@ -7,34 +7,49 @@ const instagramPosts = [
   'https://imgur.com/QHJRUCc.jpeg',
   'https://imgur.com/HX9iBXu.jpeg',
   'https://imgur.com/eiRYbvk.jpeg',
-]
+];
+
 export function InstagramFeed() {
   return (
-    <section className="py-16 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
-            Follow
-            <span className="block gradient-text">Along</span>
-          </h2>
-          <div className="flex justify-center gap-4">
+    <section className="py-20 lg:py-28 bg-cream-50">
+      <div className="container mx-auto px-5 lg:px-8">
+        <div className="text-center mb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-[10px] font-sans font-normal tracking-[0.22em] uppercase text-blush-600 mb-3"
+          >
+            Social
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            viewport={{ once: true }}
+            className="text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.1] mb-4"
+          >
+            Follow Along
+          </motion.h2>
+          <div className="flex justify-center gap-5">
             <a
               href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-lg text-neutral-900 hover:text-neutral-600 transition-colors"
+              className="text-warmgray-500 hover:text-blush-600 transition-colors duration-280"
             >
-              <Instagram className="mr-2" size={24} />
+              <Instagram size={18} strokeWidth={1.5} />
             </a>
             <a
               href="https://www.tiktok.com/@faced.bycyniee?_t=8sI7zwEL6HO&_r=1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-lg text-neutral-900 hover:text-neutral-600 transition-colors"
+              className="text-warmgray-500 hover:text-blush-600 transition-colors duration-280"
             >
               <svg
                 viewBox="0 0 24 24"
-                className="w-6 h-6 mr-2"
+                className="w-[18px] h-[18px]"
                 fill="currentColor"
               >
                 <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
@@ -43,41 +58,27 @@ export function InstagramFeed() {
           </div>
         </div>
 
-        <div className="relative flex justify-center">
-          <div className="md:grid md:grid-cols-4 md:justify-items-center gap-6 max-w-6xl w-full flex md:flex-none overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
-            {instagramPosts.map((post, index) => (
-              <motion.a
-                key={post}
-                href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] md:w-full max-w-none snap-center"
-              >
-                <SafeImage
-                  src={post}
-                  alt="Instagram post"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Scroll indicator for mobile */}
-          <div className="flex justify-center gap-2 mt-6 md:hidden">
-            {instagramPosts.map((_, index) => (
-              <div
-                key={index}
-                className="w-2 h-2 rounded-full bg-neutral-300 transition-all duration-300"
+        <div className="md:grid md:grid-cols-4 gap-3 flex overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+          {instagramPosts.map((post, index) => (
+            <motion.a
+              key={post}
+              href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
+              viewport={{ once: true, margin: '-40px' }}
+              className="hce-card hce-float group aspect-square bg-warmgray-100 flex-shrink-0 w-[68vw] md:w-auto snap-center"
+            >
+              <SafeImage
+                src={post}
+                alt="Instagram post"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.02]"
               />
-            ))}
-          </div>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>

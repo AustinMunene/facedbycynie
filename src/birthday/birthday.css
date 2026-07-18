@@ -1,0 +1,170 @@
+/* ============================================================
+   Birthday experience — scoped styles, matched to the main site
+   (Playfair Display + Josefin Sans, blush / cream / warmgray).
+   All rules are namespaced under .bday so nothing leaks out.
+   ============================================================ */
+
+.bday {
+  --bday-white: #ffffff;
+  --bday-cream: #fbf6f0;         /* site page background */
+  --bday-blush: #fde8ed;         /* blush-100 */
+  --bday-blush-deep: #f7a8bc;    /* blush-300 */
+  --bday-rose: #d888a0;          /* site button pink */
+  --bday-rose-deep: #c86e88;     /* button hover */
+  --bday-ink: #3d3533;           /* warmgray-800 (headings) */
+  --bday-ink-soft: #7d706a;      /* warmgray-600 (body) */
+
+  /* kept var names so the components don't need editing —
+     re-pointed from champagne gold to the site's blush accent */
+  --bday-gold: #c4617a;          /* blush-600 accent */
+  --bday-gold-soft: #f7a8bc;     /* blush-300 */
+
+  --bday-serif: 'Playfair Display', Georgia, serif;
+  --bday-sans: 'Josefin Sans', system-ui, sans-serif;
+
+  font-family: var(--bday-sans);
+  color: var(--bday-ink);
+  background:
+    radial-gradient(120% 80% at 50% -10%, #ffffff 0%, #fef7f8 45%, var(--bday-cream) 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bday-serif { font-family: var(--bday-serif); font-weight: 500; }
+.bday-sans { font-family: var(--bday-sans); }
+
+.bday-eyebrow {
+  font-family: var(--bday-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bday-gold);
+}
+
+.bday-script {
+  /* elegant handwritten touch — same script as the site wordmark */
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Glass card */
+.bday-glass {
+  background: rgba(255, 253, 251, 0.62);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  box-shadow:
+    0 30px 80px -40px rgba(61, 53, 51, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+}
+
+.bday-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(196, 97, 122, 0.14);
+  border-radius: 22px;
+  box-shadow: 0 20px 48px -30px rgba(61, 53, 51, 0.4);
+}
+
+.bday-gold-text {
+  background: linear-gradient(120deg, #d888a0 0%, #c4617a 55%, #a84e66 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Primary button — matches the site's pill */
+.bday-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--bday-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #d888a0;
+  box-shadow: 0 12px 30px -10px rgba(216, 136, 160, 0.65);
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    background 280ms ease, box-shadow 300ms ease;
+}
+.bday-btn:hover {
+  transform: translateY(-3px);
+  background: #c86e88;
+  box-shadow: 0 18px 40px -12px rgba(216, 136, 160, 0.7);
+}
+.bday-btn:active { transform: translateY(0) scale(0.98); }
+
+/* Polaroid */
+.bday-polaroid {
+  background: #fffdfb;
+  padding: 12px 12px 46px;
+  border-radius: 6px;
+  box-shadow: 0 24px 50px -24px rgba(61, 53, 51, 0.42);
+}
+
+/* Numbered chip */
+.bday-num {
+  font-family: var(--bday-serif);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* -------- keyframes -------- */
+@keyframes bday-petal-fall {
+  0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.9; }
+  100% { transform: translateY(110vh) translateX(var(--drift, 40px)) rotate(320deg); opacity: 0; }
+}
+
+@keyframes bday-twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.6); }
+  50%      { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bday-glow-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.08); }
+}
+
+@keyframes bday-float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.bday-petal {
+  position: absolute;
+  top: -6vh;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #ffd9e4, var(--bday-blush-deep));
+  border-radius: 80% 0 80% 0;
+  will-change: transform, opacity;
+  animation: bday-petal-fall linear infinite;
+  pointer-events: none;
+}
+
+.bday-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--bday-gold-soft) 60%, transparent 70%);
+  box-shadow: 0 0 8px 2px rgba(247, 168, 188, 0.6);
+  animation: bday-twinkle ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bday-floaty { animation: bday-float-soft 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bday-petal, .bday-sparkle, .bday-floaty { animation: none !important; }
+}

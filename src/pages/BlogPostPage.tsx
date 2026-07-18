@@ -17,7 +17,7 @@ export function BlogPostPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen pt-20 flex items-center justify-center bg-gradient-to-br from-pink-50 via-white to-purple-50">
+      <div className="min-h-screen pt-28 flex items-center justify-center bg-blush-50">
         <LoadingSpinner />
       </div>
     );
@@ -34,7 +34,7 @@ export function BlogPostPage() {
     .slice(0, 3);
 
   return (
-    <div className="pt-20 bg-gradient-to-br from-pink-50 via-white to-purple-50 min-h-screen">
+    <div className="pt-28 bg-blush-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6 lg:py-10">
         {/* Back Button */}
         <motion.div
@@ -45,7 +45,7 @@ export function BlogPostPage() {
         >
           <Link
             to="/blog"
-            className="inline-flex items-center text-purple-600 hover:text-purple-700 font-script text-lg transition-colors"
+            className="inline-flex items-center text-blush-600 hover:text-blush-700 font-sans text-lg transition-colors"
           >
             <ArrowLeft className="mr-2" size={20} />
             Back to Blog
@@ -70,8 +70,8 @@ export function BlogPostPage() {
             className="mt-12 lg:mt-16"
           >
             <div className="flex items-center gap-3 mb-6 lg:mb-10">
-              <Sparkles className="w-6 h-6 text-pink-600" />
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-neutral-900">
+              <Sparkles className="w-6 h-6 text-blush-600" />
+              <h2 className="text-2xl md:text-3xl font-sans font-light text-neutral-900">
                 Related
                 <span className="block gradient-text">Posts</span>
               </h2>

@@ -1,113 +1,114 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { SafeImage } from '../ui/SafeImage';
+
+const features = ['Makeup', 'Lashes', 'Brows', 'Classes'];
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-blush-50">
+      {/* Full-bleed background portrait */}
       <div className="absolute inset-0">
         <SafeImage
-          src="https://i.imgur.com/cpkXDat.jpeg"
+          src="https://images.pexels.com/photos/2535913/pexels-photo-2535913.jpeg"
           alt="Elegant makeup look"
-          className="w-full h-full object-cover scale-105 transition-transform duration-[20s] ease-out"
+          className="w-full h-full object-cover object-[center_25%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        {/* Soft warm scrim — gentle on a light flat-lay image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+        {/* Bottom fade — melts the hero seamlessly into the white section below */}
+        <div className="absolute inset-x-0 bottom-0 h-40 lg:h-56 bg-gradient-to-b from-transparent to-[#fbf6f0]" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 min-h-screen flex items-center">
+      {/* Glass card */}
+      <div className="relative z-10 w-full container mx-auto px-5 lg:px-8 pt-28 pb-32 lg:py-0">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-4xl"
+          transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+          className="hce-glass max-w-md p-8 lg:p-11"
         >
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6"
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="hce-eyebrow mb-5"
           >
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-lg font-script font-medium tracking-wide">
-              Professional Makeup Artist
-            </span>
-          </motion.div>
-          
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light mb-5 md:mb-6 text-white leading-[0.9] tracking-tight">
+            Professional Makeup Artist
+          </motion.p>
+
+          <h1 className="font-serif text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[0.98] tracking-[-0.01em] text-warmgray-900 mb-6">
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
               className="block"
             >
-              Makeup
+              Timeless beauty,
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="block font-normal bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent"
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
+              className="block italic text-blush-600"
             >
-              Artist
+              flawless finish
             </motion.span>
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-white/90 max-w-2xl leading-relaxed font-light"
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            className="text-[13px] leading-[1.8] text-warmgray-700 mb-8 max-w-sm"
           >
-            Unleash your ultimate glow with Faced By Cyniee. Specializing in
-            flawless makeup artistry and stunning lash enhancements, transforming
-            everyday beauty into extraordinary confidence.
+            Specializing in flawless makeup artistry and stunning lash
+            enhancements, transforming everyday beauty into extraordinary
+            confidence.
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6"
-          >
-            <Link
-              to="/book"
-              className="group relative inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] bg-white text-neutral-900 text-lg font-script font-medium tracking-wide rounded-full hover:bg-white/95 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105"
-            >
-              <span className="relative z-10">Book Now</span>
-              <ArrowRight
-                className="ml-3 group-hover:translate-x-1 transition-transform duration-300"
-                size={20}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Link>
 
-            <Link
-              to="/portfolio"
-              className="group inline-flex items-center justify-center px-10 py-5 sm:py-5 min-h-[56px] border-2 border-white/30 text-white text-lg font-script font-medium tracking-wide rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
-            >
-              <span>View Portfolio</span>
-              <div className="ml-3 w-2 h-2 bg-white/60 rounded-full group-hover:bg-white transition-colors duration-300" />
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="flex flex-col sm:flex-row gap-3"
+          >
+            <Link to="/book" className="btn-pill group">
+              Book Now
+              <ArrowRight
+                size={14}
+                strokeWidth={1.5}
+                className="group-hover:translate-x-1 transition-transform duration-280"
+              />
+            </Link>
+            <Link to="/portfolio" className="btn-pill-outline">
+              View Portfolio
             </Link>
           </motion.div>
         </motion.div>
       </div>
-      
-      {/* Scroll indicator */}
+
+      {/* Feature bar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        transition={{ duration: 0.8, delay: 0.9 }}
+        className="absolute bottom-0 left-0 right-0 z-10"
       >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-white/60 rounded-full mt-2"
-          />
+        <div className="container mx-auto px-5 lg:px-8">
+          <div className="flex items-center justify-center lg:justify-start gap-6 lg:gap-10 pb-6 pt-4 flex-wrap">
+            {features.map((feature) => (
+              <div key={feature} className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-blush-500" />
+                <span className="text-[10px] lg:text-[11px] font-sans tracking-[0.16em] uppercase text-warmgray-700">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

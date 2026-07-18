@@ -9,36 +9,29 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
       }
     };
-
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMobileMenuOpen]);
 
   const navigation = [
@@ -49,60 +42,48 @@ export function Header() {
     { name: 'Book Now', href: '/book' },
   ];
 
-  const getTextColor = (isScrolled: boolean, isHomePage: boolean) => {
-    if (isHomePage) {
-      return isScrolled ? 'text-gray-800 hover:text-purple-600' : 'text-white hover:text-purple-200';
-    }
-    return 'text-gray-800 hover:text-purple-600';
-  };
+  const isActive = (href: string) =>
+    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href);
+
+  const iconBtn =
+    'w-9 h-9 flex items-center justify-center rounded-full bg-white/50 border border-warmgray-200/70 text-warmgray-600 hover:text-blush-600 hover:border-blush-300 hover:bg-white transition-all duration-280';
 
   return (
     <header
       ref={menuRef}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || !isHomePage || isMobileMenuOpen ? 'bg-white/95 shadow-sm' : 'bg-black/20'
+      className={`fixed w-full z-50 frosted transition-all duration-500 ${
+        isScrolled
+          ? 'border-b border-warmgray-200/60 shadow-[0_1px_3px_rgba(61,53,51,0.05)]'
+          : 'border-b border-warmgray-200/30'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <Link
-            to="/"
-            className={`text-3xl font-script font-semibold tracking-wide ${
-              isScrolled || !isHomePage || isMobileMenuOpen ? 'text-purple-600' : 'text-white'
-            }`}
-          >
-            Faced by Cynie
+      <nav className="container mx-auto px-5 lg:px-8">
+        {/* Top row: brand centered, icons right */}
+        <div
+          className={`relative flex items-center justify-between lg:justify-center transition-all duration-500 ${
+            isScrolled ? 'h-16 lg:pt-3 lg:pb-2' : 'h-16 lg:pt-5 lg:pb-2'
+          }`}
+        >
+          <Link to="/" className="flex items-center leading-none group">
+            <span className="font-accent text-2xl lg:text-[30px] text-warmgray-900 transition-colors duration-300">
+              Faced by Cynie
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`font-script text-xl font-medium tracking-wide transition-all duration-300 hover:scale-105 ${getTextColor(isScrolled, isHomePage)}`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy" 
-              className={`transition-colors ${getTextColor(isScrolled, isHomePage)}`}
+          {/* Desktop icons — top right */}
+          <div className="hidden lg:flex items-center gap-2.5 absolute right-0">
+            <a
+              href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
+              className={iconBtn}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
             >
-              <Instagram size={20} />
+              <Instagram size={16} strokeWidth={1.5} />
             </a>
             {user && (
-              <Link 
-                to="/admin"
-                className={`transition-colors ${getTextColor(isScrolled, isHomePage)}`}
-                title="Admin Dashboard"
-              >
-                <Settings size={20} />
+              <Link to="/admin" className={iconBtn} title="Admin Dashboard">
+                <Settings size={16} strokeWidth={1.5} />
               </Link>
             )}
           </div>
@@ -110,52 +91,79 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg"
+            className="lg:hidden p-2 -mr-2 absolute right-0"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={isScrolled || !isHomePage ? 'text-gray-800' : 'text-white'} size={24} />
+              <X className="text-warmgray-800" size={22} strokeWidth={1.5} />
             ) : (
-              <Menu className={isScrolled || !isHomePage ? 'text-gray-800' : 'text-white'} size={24} />
+              <Menu className="text-warmgray-800" size={22} strokeWidth={1.5} />
             )}
           </button>
         </div>
 
+        {/* Nav row — centered, active underline */}
+        <div className="hidden lg:flex items-center justify-center gap-9 pb-3">
+          {navigation.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`relative font-sans text-[11px] font-normal tracking-[0.18em] uppercase pb-1 transition-colors duration-280 ${
+                  active
+                    ? 'text-warmgray-900'
+                    : 'text-warmgray-600 hover:text-blush-600'
+                }`}
+              >
+                {item.name}
+                <span
+                  className={`absolute left-0 -bottom-px h-px bg-blush-500 transition-all duration-300 ${
+                    active ? 'w-full' : 'w-0'
+                  }`}
+                />
+              </Link>
+            );
+          })}
+        </div>
+
         {/* Mobile Menu */}
         <div
-          className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-96 py-4' : 'max-h-0'
+          className={`lg:hidden overflow-hidden transition-all duration-400 ease-[var(--ease-out)] ${
+            isMobileMenuOpen ? 'max-h-[400px] pb-6' : 'max-h-0'
           }`}
         >
-          <div className="flex flex-col space-y-4 px-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="font-script text-xl font-medium tracking-wide text-gray-800 hover:text-purple-600 transition-all duration-300 hover:scale-105 py-2"
-                >
-                  {item.name}
+          <div className="flex flex-col gap-1 pt-2 border-t border-warmgray-200/60">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`relative font-sans text-[12px] font-normal tracking-[0.14em] uppercase py-3 px-1 transition-colors duration-280 ${
+                  isActive(item.href)
+                    ? 'text-blush-600'
+                    : 'text-warmgray-700 hover:text-blush-600'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex items-center gap-3 pt-4 mt-2 border-t border-warmgray-200/60 px-1">
+              <a
+                href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy"
+                className={iconBtn}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram size={16} strokeWidth={1.5} />
+              </a>
+              {user && (
+                <Link to="/admin" className={iconBtn} title="Admin Dashboard">
+                  <Settings size={16} strokeWidth={1.5} />
                 </Link>
-              ))}
-              <div className="flex items-center space-x-4 pt-4 border-t">
-                <a 
-                  href="https://www.instagram.com/faced.by_cyniee_makeup?igsh=a2UxdW00ZXU0bngy" 
-                  className="text-gray-800 hover:text-purple-600"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Instagram size={20} />
-                </a>
-                {user && (
-                  <Link 
-                    to="/admin"
-                    className="text-gray-800 hover:text-purple-600"
-                    title="Admin Dashboard"
-                  >
-                    <Settings size={20} />
-                  </Link>
-                )}
-              </div>
+              )}
             </div>
+          </div>
         </div>
       </nav>
     </header>

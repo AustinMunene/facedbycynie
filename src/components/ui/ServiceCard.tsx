@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
@@ -14,22 +13,33 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const { icon: Icon, title, description, price } = service;
-  
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+      transition={{ duration: 0.5, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
+      viewport={{ once: true, margin: '-40px' }}
+      className="hce-card group flex flex-col p-6 h-full"
     >
-      <div className="mb-4">
-        <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-600 transition-colors">
-          <Icon className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
-        </div>
+      <div className="w-11 h-11 rounded-full bg-blush-100 flex items-center justify-center mb-4 transition-colors duration-280 group-hover:bg-blush-200">
+        <Icon className="w-[18px] h-[18px] text-blush-600" strokeWidth={1.5} />
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <p className="text-purple-600 font-semibold">{price}</p>
+
+      <h3 className="text-[16px] leading-tight text-warmgray-900 mb-2">
+        {title}
+      </h3>
+
+      <p className="text-warmgray-500 text-[12.5px] leading-[1.7] mb-5 flex-1">
+        {description}
+      </p>
+
+      <div className="pt-3.5 border-t border-warmgray-200/70 flex items-center justify-between">
+        <span className="hce-eyebrow text-[9px] tracking-[0.18em] text-warmgray-400">
+          Pricing
+        </span>
+        <span className="font-serif text-[15px] text-blush-600">{price}</span>
+      </div>
     </motion.div>
   );
 }

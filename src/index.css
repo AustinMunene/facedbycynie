@@ -1,72 +1,343 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  --font-accent: 'Playfair Display', Georgia, serif;
+
+  /* Headings: Playfair Display, upright (elegant but readable —
+     the italic weight is reserved for accents only). */
+  --font-heading-family: var(--font-display);
+  --font-heading-weight: 500;
+  --font-heading-style: normal;
+
+  --font-body-family: var(--font-sans);
+  --font-body-weight: 300;
+  --font-body-style: normal;
+
+  --font-body-scale: 1.0;
+  --font-heading-scale: 1.0;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Premium surface system (blush-tinted, warm) */
+  --radius-card: 24px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --shadow-card:
+    0 1px 2px rgba(61, 53, 51, 0.05),
+    0 10px 24px -12px rgba(61, 53, 51, 0.14),
+    0 30px 60px -28px rgba(107, 47, 66, 0.16);
+  --shadow-card-hover:
+    0 2px 4px rgba(61, 53, 51, 0.06),
+    0 16px 34px -12px rgba(196, 97, 122, 0.20),
+    0 44px 74px -30px rgba(107, 47, 66, 0.24);
+  --shadow-float:
+    0 8px 32px -8px rgba(61, 53, 51, 0.16),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
+  --shadow-soft:
+    0 1px 2px rgba(61, 53, 51, 0.04),
+    0 8px 24px -14px rgba(61, 53, 51, 0.12);
+
+  /* Elevated float — for image / portfolio cards */
+  --shadow-float-lg:
+    0 2px 4px rgba(61, 53, 51, 0.05),
+    0 20px 44px -16px rgba(61, 53, 51, 0.22),
+    0 44px 84px -30px rgba(107, 47, 66, 0.28);
+  --shadow-float-lg-hover:
+    0 3px 6px rgba(61, 53, 51, 0.07),
+    0 30px 60px -18px rgba(196, 97, 122, 0.32),
+    0 64px 104px -36px rgba(107, 47, 66, 0.36);
+}
+
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
   }
-  
+
   body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.04rem;
     color: #1a1a1a;
-    background: #ffffff;
+    background: #fbf6f0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
+  @media screen and (min-width: 750px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
+    letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+    line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+    color: #171315;
   }
-  
-  h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
+
+  h1 { font-size: calc(var(--font-heading-scale) * 2.4rem); }
+  h2 { font-size: calc(var(--font-heading-scale) * 1.7rem); }
+  h3 { font-size: calc(var(--font-heading-scale) * 1.4rem); }
+  h4 { font-size: calc(var(--font-heading-scale) * 1.2rem); }
+  h5 { font-size: calc(var(--font-heading-scale) * 1rem); }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
-  
-  h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
+
+  img, video {
+    display: block;
+    max-width: 100%;
   }
-  
-  h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
+}
+
+.hce-section-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: #171315;
+}
+
+.hce-script-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #171315;
+}
+
+@media screen and (min-width: 750px) {
+  .hce-script-title {
+    font-size: 3.2rem;
+  }
+}
+
+.hce-display-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: #171315;
+}
+
+@media screen and (min-width: 750px) {
+  .hce-display-title {
+    font-size: 2.8rem;
   }
 }
 
 @layer components {
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  .frosted {
+    background: rgba(255, 253, 251, 0.72);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
-  
-  .glass-dark {
-    @apply bg-black/10 backdrop-blur-md border border-black/20;
+
+  .frosted-dark {
+    background: rgba(23, 19, 21, 0.72);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent;
+
+  .frosted-pink {
+    background: rgba(252, 231, 238, 0.65);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
-  
-  .card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+
+  /* Eyebrow label — small uppercase kicker above headings */
+  .hce-eyebrow {
+    @apply inline-block font-sans text-blush-600 uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
   }
-  
+
+  /* Premium floating card — rounded, layered soft shadow, lift on hover */
+  .hce-card {
+    @apply bg-white overflow-hidden;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 450ms var(--ease-out), transform 450ms var(--ease-out);
+    will-change: transform;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hce-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Elevated float modifier — image cards sit higher off the page */
+  .hce-float {
+    box-shadow: var(--shadow-float-lg);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hce-float:hover {
+      box-shadow: var(--shadow-float-lg-hover);
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Frosted glass overlay card (hero, floating info) */
+  .hce-glass {
+    background: rgba(255, 252, 249, 0.82);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius-card);
+    box-shadow:
+      0 16px 48px -12px rgba(61, 53, 51, 0.28),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+
+  /* Pill buttons */
+  .btn-pill,
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-script font-medium text-lg tracking-wide rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+    @apply inline-flex items-center justify-center gap-2 font-sans uppercase whitespace-nowrap;
+    padding: 14px 30px;
+    background: #d888a0;
+    color: #fff;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -8px rgba(216, 136, 160, 0.55);
+    transition: background 280ms var(--ease-out), transform 200ms var(--ease-out),
+      box-shadow 280ms var(--ease-out);
   }
-  
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-gray-200 text-gray-700 font-script font-medium text-lg tracking-wide rounded-full hover:border-gray-300 hover:bg-gray-50 transition-all duration-300;
+
+  .btn-pill:hover,
+  .btn-primary:hover {
+    background: #c86e88;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -10px rgba(216, 136, 160, 0.6);
+  }
+
+  .btn-pill:active,
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Generic surface card (used by Blog / Booking pages) */
+  .card {
+    @apply bg-white overflow-hidden;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(235, 231, 227, 0.7);
+  }
+
+  /* Blush gradient text accent */
+  .gradient-text {
+    background: linear-gradient(120deg, #e5507a 0%, #a84e66 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .btn-pill-outline {
+    @apply inline-flex items-center justify-center gap-2 font-sans uppercase whitespace-nowrap;
+    padding: 14px 30px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #3d3533;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    border: 1px solid rgba(107, 47, 66, 0.22);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 280ms var(--ease-out), color 280ms var(--ease-out),
+      background 280ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+
+  .btn-pill-outline:hover {
+    border-color: #c4617a;
+    color: #c4617a;
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .btn-pill-outline:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background: #c4617a;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+    transition: background 280ms var(--ease-out), transform 160ms var(--ease-out);
+  }
+
+  .btn-premium:hover {
+    background: #a84e66;
+  }
+
+  .btn-premium:active {
+    transform: scale(0.97);
+  }
+
+  .btn-premium-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background: transparent;
+    color: #171315;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid #d4c4c8;
+    cursor: pointer;
+    transition: border-color 280ms var(--ease-out), color 280ms var(--ease-out), transform 160ms var(--ease-out);
+  }
+
+  .btn-premium-outline:hover {
+    border-color: #c4617a;
+    color: #c4617a;
+  }
+
+  .btn-premium-outline:active {
+    transform: scale(0.97);
   }
 }
 
@@ -74,72 +345,54 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+
+  .hover-lift {
+    transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out);
   }
-  
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .hover-lift:active {
+    transform: scale(0.99);
+  }
+
+  .img-hover {
+    transition: opacity 280ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .img-hover:hover {
+      opacity: 0.88;
+    }
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile optimizations */
 @media (max-width: 765px) {
   .container {
     @apply px-4;
   }
 
-  /* Improve touch targets */
   button,
   a {
     @apply min-h-[44px] min-w-[44px];
   }
 
-  /* Prevent horizontal scroll */
   .overflow-x-auto {
     -webkit-overflow-scrolling: touch;
   }
 }
 
-/* Hide scrollbar but keep functionality */
 .snap-y,
 .scrollbar-hide {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .snap-y::-webkit-scrollbar,
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-footer {
-  position: relative;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  color: #495057;
-  padding: 2rem 1rem;
-  font-size: 14px;
-  text-align: center;
-  border-top: 1px solid #dee2e6;
+  display: none;
 }

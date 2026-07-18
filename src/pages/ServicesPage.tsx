@@ -1,146 +1,128 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Sparkles, ArrowRight } from 'lucide-react';
+import { Calendar, Sparkles, ArrowRight, Heart, Camera } from 'lucide-react';
+
+const categories = [
+  {
+    icon: Heart,
+    title: 'Bridal Makeup',
+    description:
+      'Perfect for your special day with long-lasting, camera-ready results.',
+  },
+  {
+    icon: Calendar,
+    title: 'Special Events',
+    description:
+      'Makeup for parties, photoshoots, and any special occasion.',
+  },
+  {
+    icon: Camera,
+    title: 'Editorial & Creative',
+    description:
+      'Bold, artistic looks for creative projects and fashion shoots.',
+  },
+];
 
 export function ServicesPage() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-16">
-        <div className="container mx-auto px-6">
+      <div className="bg-blush-50 pt-28 lg:pt-36 pb-16">
+        <div className="container mx-auto px-5 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="text-center max-w-2xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
-              Professional
-              <span className="block gradient-text">Services</span>
+            <p className="hce-eyebrow mb-4">Services</p>
+            <h1 className="text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.02] mb-5 text-warmgray-900">
+              Professional{' '}
+              <span className="italic text-blush-600">Services</span>
             </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed mb-10">
-              Unleash your beauty with my professional makeup services! From bridal to editorial, 
-              I specialize in creating stunning transformations that enhance your natural beauty.
+            <p className="text-warmgray-500 text-[14px] leading-[1.8] mb-9 max-w-xl mx-auto">
+              Unleash your beauty with my professional makeup services. From
+              bridal to editorial, I specialize in creating stunning
+              transformations that enhance your natural beauty.
             </p>
-            
-            {/* Creative Booking Button */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative"
-            >
-              <Link
-                to="/book"
-                className="group relative inline-flex items-center justify-center px-12 py-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xl font-script font-medium tracking-wide rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-2xl hover:shadow-pink-500/25 hover:scale-105"
-              >
-                <Sparkles className="mr-3 group-hover:rotate-12 transition-transform duration-300" size={24} />
-                <span className="relative z-10">Book Your Transformation</span>
-                <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform duration-300" size={20} />
-                
-                {/* Animated background effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-              </Link>
-              
-              {/* Floating elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-4 w-8 h-8 bg-pink-200 rounded-full opacity-60"
+            <Link to="/book" className="btn-pill group">
+              <Sparkles
+                size={16}
+                strokeWidth={1.5}
+                className="group-hover:rotate-12 transition-transform duration-300"
               />
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-                className="absolute -bottom-2 -left-4 w-6 h-6 bg-purple-200 rounded-full opacity-60"
+              Book Your Transformation
+              <ArrowRight
+                size={14}
+                strokeWidth={1.5}
+                className="group-hover:translate-x-1 transition-transform duration-280"
               />
-            </motion.div>
+            </Link>
           </motion.div>
         </div>
       </div>
 
       {/* Services Overview */}
-      <div className="py-16 bg-gradient-to-b from-white to-neutral-50">
-        <div className="container mx-auto px-6">
+      <div className="py-20 lg:py-28 bg-cream-50">
+        <div className="container mx-auto px-5 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-light mb-5 text-neutral-900">
-              What I
-              <span className="block gradient-text">Offer</span>
+            <p className="hce-eyebrow mb-3">What I Offer</p>
+            <h2 className="text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.1] mb-4 text-warmgray-900">
+              A Full Range of Artistry
             </h2>
-            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              From bridal makeup to special events, I provide a full range of professional makeup services 
-              tailored to your unique style and occasion.
+            <p className="text-warmgray-500 max-w-xl mx-auto text-[13px] leading-[1.8]">
+              From bridal makeup to special events, I provide professional
+              services tailored to your unique style and occasion.
             </p>
           </motion.div>
 
           {/* Service Categories */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="card p-8 text-center hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-pink-600" />
-              </div>
-              <h3 className="text-xl font-serif font-medium mb-4 text-neutral-900">Bridal Makeup</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                Perfect for your special day with long-lasting, camera-ready results
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="card p-8 text-center hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-serif font-medium mb-4 text-neutral-900">Special Events</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                Makeup for parties, photoshoots, and any special occasion
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="card p-8 text-center hover:scale-105 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-pink-600" />
-              </div>
-              <h3 className="text-xl font-serif font-medium mb-4 text-neutral-900">Editorial & Creative</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                Bold, artistic looks for creative projects and fashion shoots
-              </p>
-            </motion.div>
+          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {categories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="hce-card group p-7 text-center"
+                >
+                  <div className="w-12 h-12 bg-blush-100 rounded-full flex items-center justify-center mx-auto mb-5 transition-colors duration-280 group-hover:bg-blush-200">
+                    <Icon className="w-5 h-5 text-blush-600" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-[17px] text-warmgray-900 mb-2.5">
+                    {category.title}
+                  </h3>
+                  <p className="text-warmgray-500 text-[12.5px] leading-[1.7]">
+                    {category.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Call to Action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-12"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-14"
           >
-            <p className="text-lg text-neutral-600 mb-6">
-              Ready to transform your look? Let's create something beautiful together.
+            <p className="text-warmgray-600 text-[14px] mb-6">
+              Ready to transform your look? Let's create something beautiful
+              together.
             </p>
-            <Link
-              to="/book"
-              className="btn-primary"
-            >
-              <Calendar className="mr-2" size={20} />
+            <Link to="/book" className="btn-pill group">
+              <Calendar size={16} strokeWidth={1.5} />
               Book Your Appointment
             </Link>
           </motion.div>

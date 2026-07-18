@@ -46,17 +46,17 @@ export function BlogPost({ post, isFullPost = false }: BlogPostProps) {
           <BlogContent content={post.content || post.excerpt} />
         </div>
 
-        <div className="border-t bg-gradient-to-br from-pink-50 to-purple-50">
+        <div className="border-t bg-blush-50">
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 xl:px-12 py-6">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
                 <SafeImage
                   src="https://i.imgur.com/cpkXDat.jpeg"
                   alt="Author"
-                  className="w-16 h-16 rounded-full object-cover border-2 border-pink-200"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-blush-200"
                 />
                 <div>
-                  <p className="font-script text-xl font-semibold text-neutral-900">{post.author}</p>
+                  <p className="font-sans text-xl font-semibold text-neutral-900">{post.author}</p>
                   <p className="text-sm text-neutral-600">Makeup Artist</p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export function BlogPost({ post, isFullPost = false }: BlogPostProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="flex items-center text-white font-script text-lg">
+          <div className="flex items-center text-white font-sans text-lg">
             <span>Read More</span>
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
           </div>
@@ -92,7 +92,7 @@ export function BlogPost({ post, isFullPost = false }: BlogPostProps) {
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
-        <h2 className="text-xl font-serif font-semibold mb-3 text-neutral-900 group-hover:text-purple-600 transition-colors line-clamp-2">
+        <h2 className="text-xl font-semibold mb-3 text-neutral-900 group-hover:text-blush-600 transition-colors line-clamp-2">
           {post.title}
         </h2>
         <PostMetadata
@@ -107,7 +107,7 @@ export function BlogPost({ post, isFullPost = false }: BlogPostProps) {
               e.stopPropagation();
               handleClick();
             }}
-            className="text-purple-600 font-script font-medium text-lg tracking-wide hover:text-purple-700 transition-colors flex items-center gap-2"
+            className="text-blush-600 font-sans font-medium text-lg tracking-wide hover:text-blush-700 transition-colors flex items-center gap-2"
           >
             Read More
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />

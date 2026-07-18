@@ -15,7 +15,7 @@ export function PostMetadata({ author, date, category }: PostMetadataProps) {
       </div>
       <div className="flex items-center gap-1.5">
         <User size={14} />
-        <span className="font-script">{author}</span>
+        <span className="font-sans">{author}</span>
       </div>
       <div className="flex items-center gap-1.5">
         <Tag size={14} />

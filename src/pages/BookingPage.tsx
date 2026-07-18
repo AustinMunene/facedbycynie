@@ -67,30 +67,32 @@ Thank you!`;
   };
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Header Section */}
-      <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-12">
-        <div className="container mx-auto px-6">
+      <div className="bg-blush-50 pt-28 lg:pt-36 pb-14">
+        <div className="container mx-auto px-5 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="text-center max-w-2xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-5 text-neutral-900">
-              Book Your
-              <span className="block gradient-text">Transformation</span>
+            <p className="hce-eyebrow mb-4">Booking</p>
+            <h1 className="text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.02] mb-5 text-warmgray-900">
+              Book Your{' '}
+              <span className="italic text-blush-600">Transformation</span>
             </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed">
-              Ready to unleash your ultimate glow? Let's create something beautiful together. 
-              Book your appointment and let your beauty shine brighter than ever.
+            <p className="text-warmgray-500 text-[14px] leading-[1.8] max-w-xl mx-auto">
+              Ready to unleash your ultimate glow? Let's create something
+              beautiful together. Book your appointment and let your beauty
+              shine brighter than ever.
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* Main Content Section */}
-      <div className="py-16 bg-gradient-to-b from-white to-neutral-50">
+      <div className="py-16 bg-cream-50">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Booking Form */}
@@ -100,7 +102,7 @@ Thank you!`;
               transition={{ duration: 0.6 }}
               className="card p-8"
             >
-              <h2 className="text-3xl font-serif font-light mb-8 text-neutral-900">
+              <h2 className="text-3xl font-sans font-light mb-8 text-neutral-900">
                 Book Your
                 <span className="block gradient-text">Appointment</span>
               </h2>
@@ -117,7 +119,7 @@ Thank you!`;
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                       required
                     />
                   </div>
@@ -132,7 +134,7 @@ Thank you!`;
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                       required
                     />
                   </div>
@@ -149,7 +151,7 @@ Thank you!`;
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                       required
                     />
                   </div>
@@ -163,7 +165,7 @@ Thank you!`;
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                       required
                     >
                       <option value="">Select a service</option>
@@ -186,7 +188,7 @@ Thank you!`;
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                     required
                   />
                 </div>
@@ -202,7 +204,7 @@ Thank you!`;
                     onChange={handleChange}
                     rows={4}
                     placeholder="Tell me about your vision, special requirements, or any questions you have..."
-                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blush-300 focus:border-transparent transition-all duration-300"
                   />
                 </div>
                 
@@ -223,37 +225,37 @@ Thank you!`;
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="card p-8">
-                <h3 className="text-2xl font-serif font-light mb-6 text-neutral-900">
+                <h3 className="text-2xl font-sans font-light mb-6 text-neutral-900">
                   Get in Touch
                 </h3>
                 <div className="space-y-4">
                   <a
                     href="tel:0740377992"
-                    className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl hover:from-pink-100 hover:to-purple-100 transition-all duration-300"
+                    className="flex items-center p-4 bg-cream-50 rounded-xl hover:bg-cream-100 transition-all duration-300"
                   >
-                    <Phone className="w-6 h-6 text-pink-600 mr-4" />
+                    <Phone className="w-6 h-6 text-blush-500 mr-4" />
                     <div>
                       <h4 className="font-medium text-neutral-900">Phone</h4>
-                      <p className="text-pink-600">0740377992</p>
+                      <p className="text-blush-600">0740377992</p>
                     </div>
                   </a>
                   
                   <a
                     href="mailto:cynthiachiuri@gmail.com"
-                    className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl hover:from-pink-100 hover:to-purple-100 transition-all duration-300"
+                    className="flex items-center p-4 bg-cream-50 rounded-xl hover:bg-cream-100 transition-all duration-300"
                   >
-                    <Mail className="w-6 h-6 text-pink-600 mr-4" />
+                    <Mail className="w-6 h-6 text-blush-500 mr-4" />
                     <div>
                       <h4 className="font-medium text-neutral-900">Email</h4>
-                      <p className="text-pink-600">cynthiachiuri@gmail.com</p>
+                      <p className="text-blush-600">cynthiachiuri@gmail.com</p>
                     </div>
                   </a>
                   
-                  <div className="flex items-center p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl">
-                    <MapPin className="w-6 h-6 text-pink-600 mr-4" />
+                  <div className="flex items-center p-4 bg-cream-50 rounded-xl">
+                    <MapPin className="w-6 h-6 text-blush-500 mr-4" />
                     <div>
                       <h4 className="font-medium text-neutral-900">Location</h4>
-                      <p className="text-pink-600">Nairobi, Kenya</p>
+                      <p className="text-blush-600">Nairobi, Kenya</p>
                     </div>
                   </div>
                 </div>
@@ -264,7 +266,7 @@ Thank you!`;
       </div>
 
       {/* Available Services Section */}
-      <div className="py-16 bg-gradient-to-br from-neutral-50 via-white to-pink-50/30">
+      <div className="py-16 bg-blush-50">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -272,7 +274,7 @@ Thank you!`;
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-light mb-5 text-neutral-900">
+            <h2 className="text-4xl md:text-5xl font-sans font-light mb-5 text-neutral-900">
               Available
               <span className="block gradient-text">Services</span>
             </h2>
@@ -290,7 +292,7 @@ Thank you!`;
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="card p-8 hover:scale-105 transition-all duration-300"
               >
-                <h3 className="text-xl font-serif font-medium mb-4 text-neutral-900">
+                <h3 className="text-xl font-sans font-medium mb-4 text-neutral-900">
                   {service.title}
                 </h3>
                 <p className="text-neutral-600 mb-6 leading-relaxed">

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Clock } from 'lucide-react';
+import { Clock, ArrowRight } from 'lucide-react';
 import { Service } from '../../types/services';
 import { Link } from 'react-router-dom';
 
@@ -9,19 +8,35 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-      <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-      <p className="text-gray-600 mb-4">{service.description}</p>
-      <div className="flex items-center text-gray-500 mb-4">
-        <Clock size={16} className="mr-2" />
-        <span>{service.duration}</span>
+    <div className="hce-card group flex flex-col p-6 h-full">
+      <h3 className="text-[17px] leading-tight text-warmgray-900 mb-2.5">
+        {service.title}
+      </h3>
+      <p className="text-warmgray-500 text-[12.5px] leading-[1.7] mb-4 flex-1">
+        {service.description}
+      </p>
+
+      <div className="flex items-center gap-2 text-warmgray-400 text-[12px] mb-4">
+        <Clock size={14} strokeWidth={1.5} />
+        <span className="tracking-[0.02em]">{service.duration}</span>
       </div>
-      <p className="text-purple-600 font-semibold mb-4">{service.price}</p>
-      <Link
-        to="/book"
-        className="inline-block w-full text-center py-2 px-4 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors"
-      >
+
+      <div className="pt-4 border-t border-warmgray-200/70 flex items-center justify-between mb-5">
+        <span className="hce-eyebrow text-[9px] tracking-[0.18em] text-warmgray-400">
+          Pricing
+        </span>
+        <span className="font-serif text-[16px] text-blush-600">
+          {service.price}
+        </span>
+      </div>
+
+      <Link to="/book" className="btn-pill w-full group/btn">
         Book Now
+        <ArrowRight
+          size={14}
+          strokeWidth={1.5}
+          className="transition-transform duration-280 group-hover/btn:translate-x-1"
+        />
       </Link>
     </div>
   );

@@ -17,16 +17,16 @@ const categories: { value: Category; label: string }[] = [
 
 export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2 mb-8">
+    <div className="flex flex-wrap justify-center gap-2.5 mb-10">
       {categories.map(({ value, label }) => (
         <button
           key={value}
           onClick={() => onCategoryChange(value)}
           className={clsx(
-            'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+            'px-5 py-2 rounded-full text-[11px] font-sans tracking-[0.12em] uppercase transition-all duration-280',
             selectedCategory === value
-              ? 'bg-purple-600 text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              ? 'bg-[#d888a0] text-white shadow-[0_8px_20px_-8px_rgba(216,136,160,0.55)]'
+              : 'bg-white text-warmgray-600 border border-warmgray-200/70 hover:border-blush-300 hover:text-blush-600'
           )}
         >
           {label}

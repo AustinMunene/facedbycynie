@@ -1,41 +1,35 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { PortfolioGrid } from '../components/portfolio/PortfolioGrid';
 import { PageTransition } from '../components/layout/PageTransition';
-import { Camera, Palette, Sparkles } from 'lucide-react';
 
 export function PortfolioPage() {
   return (
     <PageTransition>
-      <div className="pt-20">
+      <div>
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-pink-50 via-white to-purple-50 py-10">
-          <div className="container mx-auto px-6">
+        <div className="bg-blush-50 pt-28 lg:pt-36 pb-14 lg:pb-16">
+          <div className="container mx-auto px-5 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+              className="text-center max-w-2xl mx-auto"
             >
-              <div className="flex items-center justify-center mb-3">
-                <Camera className="w-10 h-10 text-pink-600 mr-3" />
-                <Palette className="w-8 h-8 text-purple-600 mr-3" />
-                <Sparkles className="w-6 h-6 text-pink-500" />
-              </div>
-              <h1 className="text-4xl md:text-5xl font-serif font-light mb-3 text-neutral-900">
-                My
-                <span className="block gradient-text">Portfolio</span>
+              <p className="hce-eyebrow mb-4">Portfolio</p>
+              <h1 className="text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] mb-5 text-warmgray-900">
+                My Portfolio
               </h1>
-              <p className="text-lg text-neutral-600 leading-relaxed">
-                Explore my collection of stunning makeup transformations and artistic creations. 
-                From bridal beauty to creative editorial looks, discover the artistry of Faced by Cynie.
+              <p className="text-warmgray-500 text-[14px] leading-[1.8]">
+                Explore my collection of stunning makeup transformations and
+                artistic creations — from bridal beauty to creative editorial
+                looks, discover the artistry of Faced by Cynie.
               </p>
             </motion.div>
           </div>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="bg-gradient-to-b from-white to-neutral-50">
+        <div className="bg-cream-50">
           <PortfolioGrid />
         </div>
       </div>
