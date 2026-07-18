@@ -155,14 +155,13 @@ function BirthdayPage() {
           transition={{ duration: 1, ease: EASE, delay: 0.2 }}
           className="relative"
         >
-          <p className="bday-eyebrow mb-6">The woman we celebrate</p>
+          <p className="bday-eyebrow mb-6">IT'S YOUR SPECIAL DAY</p>
           <h1 className="bday-serif text-[clamp(2.6rem,8vw,6rem)] leading-[1.02] text-[color:var(--bday-ink)]">
             Happy {C.AGE}th Birthday,
             <span className="block italic bday-gold-text mt-2">{C.NAME}</span>
           </h1>
           <p className="bday-sans text-[clamp(0.95rem,1.8vw,1.15rem)] text-[color:var(--bday-ink-soft)] max-w-2xl mx-auto mt-8 leading-relaxed">
-            Today we celebrate not only another year of your life, but the
-            incredible woman you continue becoming.
+            
           </p>
         </motion.div>
 
@@ -261,7 +260,7 @@ function BirthdayPage() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </section>Today
 
       {/* ---------------- MEMORIES ---------------- */}
       <section className="relative px-6 py-16 md:py-24 lg:py-28">
@@ -322,7 +321,7 @@ function BirthdayPage() {
             className="inline-flex mb-8"
           >
             <Heart size={64} strokeWidth={1.2} className="text-[color:var(--bday-rose)] fill-[color:var(--bday-blush-deep)]" />
-          </motion.div>
+          </motion.div> My Baby finally turns 20😂😂
           <h2 className="bday-serif text-[clamp(1.8rem,4.5vw,3rem)] italic text-[color:var(--bday-ink)] max-w-2xl mx-auto leading-tight">
             {C.FINAL_TITLE}
           </h2>
@@ -358,7 +357,7 @@ export default function BirthdayExperience() {
       sessionStorage.setItem('bday_confetti', '1');
       setRunConfetti(true);
     }
-    const t = setTimeout(() => setShowButton(true), 4500);
+    const t = setTimeout(() => setShowButton(true), 2000);
     return () => clearTimeout(t);
   }, []);
 
