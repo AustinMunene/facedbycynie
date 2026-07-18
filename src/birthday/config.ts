@@ -32,10 +32,13 @@ export const SHOW_HOMEPAGE_TEASER = true;
 /** Where the final "Continue" button sends her. */
 export const CONTINUE_TO = '/';
 
-/* ---- Background music (disabled by default, easy to enable) ---- */
+/* ---- Background music (opt-in) ----
+   Must be a DIRECT audio file (.mp3/.m4a) — Spotify/YouTube page links
+   cannot play in a web page. This is a royalty-free "Clair de Lune"
+   (Debussy, CC-BY 3.0) hosted on the Internet Archive. */
 export const ENABLE_MUSIC = true;
-// Drop an mp3 URL here and set ENABLE_MUSIC = true to offer soft music.
-export const MUSIC_URL = 'https://open.spotify.com/track/0tX6evzX8NgCjx03vqfCRK?si=8672231d13784b24';
+export const MUSIC_URL =
+  'https://archive.org/download/jamendo-638850/01-2327359-Felted%20Classics-Clair%20de%20Lune%20_Debussy_.mp3';
 
 /* ---- Intro overlay copy ---- */
 export const INTRO_LINES = [
@@ -49,30 +52,30 @@ export const LETTER_PARAGRAPHS = [
 
   `I'm so proud of everything you've achieved. The way you pursue excellence, work hard without losing your kindness, continue growing in your career, build your business with so much passion, and keep trusting God through every season inspires me more than you know. You never stop becoming better, and that's one of the countless things I admire about you.`,
 
-  `Thank you for loving me so well, for believing in me even when I struggle to believe in myself, for praying with me, encouraging me, laughing with me, and making life brighter simply because you're in it. My prayer is that your 28th year is filled with God's favor, joy, peace, unforgettable memories, and dreams becoming reality. I'll be right beside you, cheering you on every step of the way, because there's no one else I'd rather celebrate than you. Happy Birthday, my love. ❤️`,
+  `Thank you for loving me so well, for believing in me even when I struggle to believe in myself, for praying with me, encouraging me, laughing with me, and making life brighter simply because you're in it. My prayer is that your 28th year is filled with God's favor, joy, peace, unforgettable memories, and dreams becoming reality. I'll be right beside you, cheering you on every step of the way, because there's no one else I'd rather celebrate than you. Happy Birthday, Baby. ❤️`,
 ];
 export const SIGNATURE = 'Babe';
 
 /* ---- 28 Things I Love About You (replace each line) ---- */
 export const THINGS_I_LOVE: string[] = Array.from({ length: AGE }, (_, i) => {
   const seeds = [
-    'The way your sing in such a beautiful voice.',
+    'The way your sing in such a beautiful voice😂',
     'How gentle you are with everyone.',
-    'How adorable you look while you are sleeping because you are almost always asleep.',
+    'How adorable you look while you are sleeping because you are almost always asleep😂',
     'The little hum you do when you concentrate.',
     'How you make everyone feel like the main character.',
     'Your courage to chase a dream intentionally.',
     'The way you say my name : Savius.',
     'How you turn my bad days into soft ones.',
-    'Your endless curiosity about people.',
-    'The kindness you show strangers.',
+    'Your endless curiosity about God.',
+    'The kindness you show everyone.',
     'How hard you work when no one is watching.',
     'Your unshakeable sense of style.',
-    'The way you light up talking about your work.',
+    'The way you light up talking about us.',
     'How heard you make me feel.',
     'Your honesty, even when it is hard.',
     'The way you during events at your work place. Specifically Jubilee.',
-    'How you remember the tiny things and choose not to reeber the day I proposed to you.',
+    'How you remember the tiny things and choose not to remember the day I proposed to you😩😂.',
     'Your generous, open heart.',
     'The comfort of your presence.',
     'How you believe in me.',

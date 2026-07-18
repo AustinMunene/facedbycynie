@@ -1,0 +1,2 @@
+# SPA fallback: let React Router handle all routes (fixes 404 on reload/direct visit)
+/*    /index.html   200

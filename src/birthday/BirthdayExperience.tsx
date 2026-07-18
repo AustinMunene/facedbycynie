@@ -161,7 +161,7 @@ function BirthdayPage() {
             <span className="block italic bday-gold-text mt-2">{C.NAME}</span>
           </h1>
           <p className="bday-sans text-[clamp(0.95rem,1.8vw,1.15rem)] text-[color:var(--bday-ink-soft)] max-w-2xl mx-auto mt-8 leading-relaxed">
-            
+            My Baby finally turns 20 😂😂
           </p>
         </motion.div>
 
@@ -321,7 +321,7 @@ function BirthdayPage() {
             className="inline-flex mb-8"
           >
             <Heart size={64} strokeWidth={1.2} className="text-[color:var(--bday-rose)] fill-[color:var(--bday-blush-deep)]" />
-          </motion.div> My Baby finally turns 20😂😂
+          </motion.div>
           <h2 className="bday-serif text-[clamp(1.8rem,4.5vw,3rem)] italic text-[color:var(--bday-ink)] max-w-2xl mx-auto leading-tight">
             {C.FINAL_TITLE}
           </h2>
